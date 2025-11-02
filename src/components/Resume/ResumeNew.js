@@ -1,75 +1,137 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Particle from "../Particle";
-import pdf from "../../Assets/prabu_SG.pdf";
-import { AiOutlineDownload } from "react-icons/ai";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+import React, { useEffect, useState } from "react";
+import { ArrowDownToLine } from "lucide-react";
+import resumePdf from "../../Assets/prabu_SG.pdf";
 
 function ResumeNew() {
-  const [width, setWidth] = useState(1200);
+  const [canEmbed, setCanEmbed] = useState(false);
+  const [previewRequested, setPreviewRequested] = useState(false);
 
   useEffect(() => {
-    setWidth(window.innerWidth);
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+      setCanEmbed(true);
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const update = () => setCanEmbed(mediaQuery.matches);
+    update();
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", update);
+      return () => mediaQuery.removeEventListener("change", update);
+    }
+
+    mediaQuery.addListener(update);
+    return () => mediaQuery.removeListener(update);
   }, []);
 
+  const shouldShowPreview = canEmbed || previewRequested;
+
   return (
-    <div style={{ backgroundColor: "black", color: "white" }}>
-      <Container fluid className="resume-section">
-        <Particle />
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="outline-warning"
-            href={pdf}
-            target="_blank"
-            style={{
-              maxWidth: "250px",
-              borderRadius: "25px",
-              padding: "12px 20px",
-              fontSize: "1.1em",
-              fontWeight: "600",
-              borderColor: "#d4af37",
-              color: "#d4af37",
-              transition: "background-color 0.3s ease, color 0.3s ease",
-            }}
-            className="download-button"
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
-        </Row>
+    <>
+      <section className="page-section hero">
+        <div className="layout-container">
+          <div>
+            <span className="hero-eyebrow">Resume</span>
+            <h1 className="hero-title">A snapshot of my work</h1>
+            <p className="hero-summary">
+              Here is the written version of my experience, projects, and research. Download the PDF for deeper context or skim the highlights below.
+            </p>
+            <div className="hero-actions">
+              <a className="pill pill-primary" href={resumePdf} target="_blank" rel="noreferrer">
+                Download PDF
+                <ArrowDownToLine size={16} aria-hidden="true" />
+              </a>
+              <a className="pill" href="#resume-summary">
+                View quick summary
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <Row className="resume" style={{ paddingTop: "50px" }}>
-          <Document file={pdf} className="d-flex justify-content-center">
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
-          </Document>
-        </Row>
+      <section className="page-section" id="resume-summary">
+        <div className="layout-container">
+          <header>
+            <h2 className="section-heading">Quick summary</h2>
+            <p className="section-subheading">
+              Key highlights from my resume. On mobile, this section replaces the embedded PDF for a smoother experience.
+            </p>
+          </header>
+          <div className="resume-summary">
+            <article className="content-card">
+              <h3>Experience</h3>
+              <ul className="simple-list">
+                <li>
+                  <strong>Juniper Networks</strong> – Shipped an SSL proxy data pipeline and SaaS classifier that cut manual triage by ~60%.
+                </li>
+                <li>
+                  <strong>SkySecure Ltd</strong> – Prototyped real-time threat detection and documented the validation workflow for analysts.
+                </li>
+              </ul>
+            </article>
+            <article className="content-card">
+              <h3>Projects</h3>
+              <ul className="simple-list">
+                <li>
+                  <strong>DefenSys</strong> – Research collaboration; Dockerised cyber defence platform used in published work.
+                </li>
+                <li>
+                  <strong>Terra</strong> – Personal project; OCR-based carbon tracker with Firebase auth and analytics.
+                </li>
+                <li>
+                  <strong>OnlyCabs</strong> – Hackathon prototype; microservices ride-hailing concept that placed top 10/500.
+                </li>
+              </ul>
+            </article>
+            <article className="content-card">
+              <h3>Academics & skills</h3>
+              <ul className="simple-list">
+                <li>RV College of Engineering – B.E. CSE (Cybersecurity), GPA 8.75, 2022–2026.</li>
+                <li>Comfortable with Python, Java, JavaScript/TypeScript, React, Flask, Node.js, Firebase, Docker.</li>
+                <li>Interests: ML pipelines, platform security, developer experience.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
 
-        <Row style={{ justifyContent: "center", position: "relative", paddingTop: "30px" }}>
-          <Button
-            variant="outline-warning"
-            href={pdf}
-            target="_blank"
-            style={{
-              maxWidth: "250px",
-              borderRadius: "25px",
-              padding: "12px 20px",
-              fontSize: "1.1em",
-              fontWeight: "600",
-              borderColor: "#d4af37",
-              color: "#d4af37",
-              transition: "background-color 0.3s ease, color 0.3s ease",
-            }}
-            className="download-button"
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
-        </Row>
-      </Container>
-    </div>
+      {!shouldShowPreview && (
+        <section className="page-section">
+          <div className="layout-container">
+            <div className="content-card resume-preview-fallback">
+              <p className="muted">
+                The embedded preview is disabled on smaller screens to keep the page lightweight. You can still download the PDF or load the preview manually.
+              </p>
+              <button type="button" className="pill" onClick={() => setPreviewRequested(true)}>
+                Load embedded preview
+              </button>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {shouldShowPreview && (
+        <section className="page-section" id="resume-preview">
+          <div className="layout-container">
+            <header>
+              <h2 className="section-heading">Inline preview</h2>
+              <p className="section-subheading">
+                Scroll through the current resume below or open the PDF in a new tab for a closer look.
+              </p>
+            </header>
+            <div className="resume-viewer">
+              <iframe
+                src={resumePdf}
+                title="Prabu Jayant resume preview"
+                className="resume-frame"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+      )}
+    </>
   );
 }
 

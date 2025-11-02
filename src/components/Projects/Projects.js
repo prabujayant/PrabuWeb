@@ -1,117 +1,112 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import ProjectCard from "./ProjectCards";
-import Particle from "../Particle";
-import medisyncImg from "../../Assets/Projects/medisync.png";
-import bookstoreImg from "../../Assets/Projects/bookstore.png";
-import newsImg from "../../Assets/Projects/news.png";
-// Add placeholder images for new projects or use actual image imports
-import defensysImg from "../../Assets/Projects/defensys.png"; // Add your DefenSys image
-import terraImg from "../../Assets/Projects/terra.png"; // Add your Terra image
+import { ArrowUpRight } from "lucide-react";
+import { profile } from "../../data/profile";
+
+const research = [
+  {
+    title: "Adaptive ML for SaaS Traffic Classification",
+    venue: "ICWIHI 2025",
+    link: "https://drive.google.com/file/d/1B3tt_W8u3wbktvR13hm7hObToNdV87Ww/view",
+  },
+  {
+    title: "Smart Health Monitoring using IoT & AI",
+    venue: "ICoICI 2024",
+    link: "https://ieeexplore.ieee.org/document/10724486",
+  },
+  {
+    title: "Intrusion Detection in Network Traffic Using LSTM",
+    venue: "IEEE ICCCNT 2024",
+    link: "https://ieeexplore.ieee.org/document/10696283",
+  },
+];
 
 function Projects() {
   return (
-    <Container fluid className="project-section" style={{ backgroundColor: "#1d1d1d", paddingTop: "50px" }}>
-      <Particle />
-      <Container>
-        <h1 className="project-heading" style={{ color: "#d4af37", fontWeight: "bold", marginBottom: "30px" }}>
-          My Recent <strong className="purple">Works</strong>
-        </h1>
-        <p style={{ color: "white", fontSize: "1.2em", marginBottom: "50px" }}>
-          Here are a few projects I've worked on recently.
-        </p>
-        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={defensysImg}
-              isBlog={false}
-              title="DefenSys - Integrated Deep Learning Platform"
-              description="A comprehensive cyber defense platform integrating malware detection with dynamic attack simulation, achieving 95%+ classification accuracy across 25+ malware families using Docker, Python, React, TensorFlow, and ResNet."
-              ghLink="https://github.com/prabujayant/DefenSys" // Update with actual GitHub link
-            />
-          </Col>
+    <>
+      <section className="page-section hero">
+        <div className="layout-container">
+          <div>
+            <span className="hero-eyebrow">Projects</span>
+            <h1 className="hero-title">Hands-on products and research</h1>
+            <p className="hero-summary">
+              I like to build focused tools that blend thoughtful UX with dependable systems. Here are a few that mattered recently.
+            </p>
+          </div>
+        </div>
+      </section>
 
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={terraImg}
-              isBlog={false}
-              title="Terra - AI-based Personalized Carbon Footprint Companion"
-              description="AI-powered mobile application integrating RAG with Llama 3.2 3B Instruct model for personalized carbon emission tracking. Features OCR-based eco-shopping assistant and comprehensive carbon footprint calculator with Firebase integration."
-              ghLink="https://github.com/prabujayant/Terra" // Update with actual GitHub link
-            />
-          </Col>
+      <section className="page-section">
+        <div className="layout-container">
+          <header>
+            <h2 className="section-heading">Product builds</h2>
+            <p className="section-subheading">
+              Full-stack workstreams where I owned architecture, implementation, and delivery.
+            </p>
+          </header>
+          <div className="grid two">
+            {profile.projects.map((project) => (
+              <article key={project.name} className="content-card">
+                <div className="inline-tags">
+                  <span className="tag">{project.context}</span>
+                  {project.status && <span className="tag">{project.status}</span>}
+                </div>
+                <h3>{project.name}</h3>
+                <p className="muted">{project.summary}</p>
+                <ul className="list-reset project-notes">
+                  <li>
+                    <strong>Goal</strong> {project.goal}
+                  </li>
+                  <li>
+                    <strong>My role</strong> {project.contribution}
+                  </li>
+                  <li>
+                    <strong>Outcome</strong> {project.outcome}
+                  </li>
+                </ul>
+                <div className="stack-list">
+                  {project.stack.map((item) => (
+                    <span key={item} className="stack-item">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                {project.link && (
+                  <a className="pill" href={project.link} target="_blank" rel="noreferrer">
+                    View project
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={bookstoreImg}
-              isBlog={false}
-              title="Book Store MERN Stack Project"
-              description="A full-stack application built with MongoDB, Express.js, React, and Node.js (MERN) for managing a book store."
-              ghLink="https://github.com/prabujayant/BookStore-MERN"
-            />
-          </Col>
-        </Row>
-
-        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={newsImg}
-              isBlog={false}
-              title="News App"
-              description="A fully responsive News Application that fetches and displays real-time news articles using the News API."
-              ghLink="https://github.com/prabujayant/NewsApp"
-              viewLink="https://prabujayant.github.io/NewsApp/"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={medisyncImg}
-              isBlog={false}
-              title="MediSync: Smart Health Monitoring using Machine Learning & IoT"
-              description="An innovative smart health monitoring platform utilizing Machine Learning, TensorFlow, and IoT for early anomaly detection and data-driven decision-making."
-              ghLink="https://github.com/prabujayant/MediSync-Smart-Health-Monitoring-System"
-              viewLink="https://drive.google.com/file/d/1KefmGBYEHOlIXaXR9JIy-E3E5xa_ijS1/view"
-            />
-          </Col>
-        </Row>
-
-        <h1 className="project-heading" style={{ color: "#d4af37", fontWeight: "bold", marginTop: "50px", marginBottom: "30px" }}>
-          My <strong className="purple">Research Works</strong>
-        </h1>
-        <p style={{ color: "white", fontSize: "1.2em", marginBottom: "50px" }}>
-          These are some of my recent research publications.
-        </p>
-        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={4} className="project-card">
-            <ProjectCard
-              title="Adaptive ML Framework for SaaS Traffic Classification in Cloud Ecosystem"
-              description="ICWIHI 2025. Presented at the International Conference on Web Intelligence and Human-Machine Interaction, organized by R P Sarathy Institute of Technology, Salem, Tamil Nadu, India."
-              viewLink="https://drive.google.com/file/d/1B3tt_W8u3wbktvR13hm7hObToNdV87Ww/view"
-              isBlog={true}
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              title="Smart Health Monitoring and Anomaly Detection Using IoT and AI"
-              description="ICoICI 2024. This paper focuses on leveraging IoT and AI for health monitoring and anomaly detection."
-              viewLink="https://ieeexplore.ieee.org/document/10724486"
-              isBlog={true}
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              title="Intrusion Detection Using LSTM and Deep Learning"
-              description="ICCCNT 2024. A deep learning approach for intrusion detection using LSTM models."
-              viewLink="https://ieeexplore.ieee.org/document/10696283"
-              isBlog={true}
-            />
-          </Col>
-        </Row>
-      </Container>
-    </Container>
+      <section className="page-section">
+        <div className="layout-container">
+          <header>
+            <h2 className="section-heading">Research writing</h2>
+            <p className="section-subheading">
+              Publications exploring applied ML, IoT health, and SaaS observability.
+            </p>
+          </header>
+          <div className="grid two">
+            {research.map(({ title, venue, link }) => (
+              <article key={title} className="content-card">
+                <h3>{title}</h3>
+                <p className="muted">{venue}</p>
+                {link && (
+                  <a className="pill" href={link} target="_blank" rel="noreferrer">
+                    Read paper
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
