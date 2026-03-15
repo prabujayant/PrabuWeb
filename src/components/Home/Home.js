@@ -32,24 +32,6 @@ const proofPoints = [
   },
 ];
 
-const signalCards = [
-  {
-    title: "Enterprise product work",
-    body:
-      "I currently work on classification tooling that combines React, Flask, PostgreSQL, human review loops, and Azure deployment.",
-  },
-  {
-    title: "Research-backed engineering",
-    body:
-      "My projects and publications sit at the overlap of applied AI, SaaS observability, health monitoring, and network security.",
-  },
-  {
-    title: "Execution under constraints",
-    body:
-      "I like building software that stays understandable under real operating constraints: scale, reviewability, security, and handoff clarity.",
-  },
-];
-
 const workingStyle = [
   {
     title: "I build for trust, not just demos",
@@ -178,36 +160,19 @@ function Home() {
         </div>
       </section>
 
-      <section className="page-section">
-        <div className="layout-container">
-          <header className="section-header">
-            <h2 className="section-heading">Why my work tends to stick</h2>
-            <p className="section-subheading">
-              The common thread across my internships, projects, and papers is shipping practical systems that are easier to trust and easier to operate.
-            </p>
-          </header>
-          <div className="grid three">
-            {signalCards.map((card) => (
-              <article key={card.title} className="content-card">
-                <h3>{card.title}</h3>
-                <p className="muted">{card.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       <section className="page-section">
         <div className="layout-container">
           <header className="section-header section-header--inline">
             <div>
-              <h2 className="section-heading">Selected work that acts as proof</h2>
+              <h2 className="section-heading">Featured work</h2>
               <p className="section-subheading">
-                A few examples where architecture, product thinking, and implementation detail all mattered.
+                A primary example where architecture, product thinking, and implementation detail all mattered.
               </p>
             </div>
             <a className="pill project-link" href="/projects">
-              Open full project page
+              View all projects
             </a>
           </header>
           {profile.projects[0] && (
@@ -248,98 +213,13 @@ function Home() {
               </div>
             </article>
           )}
-          <div className="grid two">
-            {profile.projects.slice(1).map((project) => (
-              <article key={project.name} className="content-card">
-                <div className="inline-tags">
-                  <span className="tag">{project.context}</span>
-                  {project.status && <span className="tag">{project.status}</span>}
-                </div>
-                <h3>{project.name}</h3>
-                <p className="muted">{project.summary}</p>
-                <div className="project-outcome">
-                  <strong>Why it mattered</strong> {project.outcome}
-                </div>
-                <div className="stack-list">
-                  {project.stack.map((item) => (
-                    <span key={item} className="stack-item">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-                {project.link && (
-                  <a className="pill" href={project.link} target="_blank" rel="noreferrer">
-                    View project
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </a>
-                )}
-                {!project.link && <p className="muted">Project walkthrough available on request.</p>}
-              </article>
-            ))}
-          </div>
+
         </div>
       </section>
 
-      <section className="page-section">
-        <div className="layout-container">
-          <header className="section-header">
-            <h2 className="section-heading">Experience that shaped how I build</h2>
-            <p className="section-subheading">
-              Recent work across enterprise workflows, SaaS observability, and production-oriented ML systems.
-            </p>
-          </header>
-          <div className="timeline">
-            {profile.experience.map((job) => (
-              <article key={job.company} className="timeline-item">
-                <span className="timeline-period">{job.period}</span>
-                <div className="timeline-content">
-                  <h3>{job.company}</h3>
-                  <p className="muted">{job.role}</p>
-                  <ul className="list-reset">
-                    {job.accomplishments.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <section className="page-section">
-        <div className="layout-container">
-          <header className="section-header">
-            <h2 className="section-heading">Signals recruiters and engineers care about</h2>
-            <p className="section-subheading">
-              Recognition, research, and leadership that back up the technical story.
-            </p>
-          </header>
-          <div className="grid two">
-            <article className="content-card">
-              <h3>Selected achievements</h3>
-              <ul className="simple-list">
-                {profile.achievements.map((achievement) => (
-                  <li key={achievement}>{achievement}</li>
-                ))}
-              </ul>
-            </article>
-            <article className="content-card">
-              <h3>Community and momentum</h3>
-              <ul className="simple-list">
-                {profile.leadership.map((item) => (
-                  <li key={item.title}>
-                    <strong>{item.title}</strong> - {item.description}
-                  </li>
-                ))}
-                <li>
-                  <strong>Publications</strong> - {profile.publications.length} peer-reviewed papers spanning healthcare AI, network security, and SaaS traffic classification.
-                </li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
+
+
 
       <section className="page-section">
         <div className="layout-container">
