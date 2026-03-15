@@ -61,17 +61,17 @@ export const profile = {
   ],
   projects: [
     {
-      name: "CoLab - Real-Time Collaborative Platform",
+      name: "CoLab - Real-time Collaborative Editor",
       context: "Distributed systems build",
-      status: "CI/CD-enabled product",
+      status: "Production-grade product",
       summary:
-        "Low-latency collaborative editing platform designed for concurrent multi-user sessions, durable persistence, and secure access control.",
-      goal: "Enable real-time document collaboration without sacrificing consistency, session security, or deployment discipline.",
+        "High-performance real-time collaborative text editor with conflict-free synchronization, live presence cursors, and deep document versioning. Built around CRDT principles for Google Docs-like simultaneous editing.",
+      goal: "Enable instant, conflict-free collaboration with secure session handling, auto-saving persistence, and version history snapshots.",
       contribution:
-        "Designed the CRDT and WebSocket architecture, optimized PostgreSQL persistence through Prisma ORM, and wired JWT auth with Redis-backed session handling.",
+        "Designed the CRDT (Y.js) and WebSocket architecture, engineered Gzip-compressed snapshot persistence in PostgreSQL, and implemented JWT-based auth with session rotation.",
       outcome:
-        "Delivered a secure collaboration stack with automated testing and deployment pipelines using GitHub Actions and Docker across the development lifecycle.",
-      stack: ["TypeScript", "React", "Node.js", "Redis", "PostgreSQL", "WebSockets"],
+        "Shipped a secure, low-latency collaboration stack featuring a real-time observability dashboard for tracking system metrics and active user sessions.",
+      stack: ["TypeScript", "React", "Node.js", "Redis", "PostgreSQL", "CRDTs", "WebSockets", "Docker"],
       link: "https://github.com/prabujayant/CoLab",
     },
     {

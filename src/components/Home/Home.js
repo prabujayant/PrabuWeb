@@ -32,20 +32,7 @@ const proofPoints = [
   },
 ];
 
-const workingStyle = [
-  {
-    title: "I build for trust, not just demos",
-    body: "The systems I enjoy most are the ones that need auditability, clear operator flows, and resilient handoff between people and software.",
-  },
-  {
-    title: "I like shipping the whole loop",
-    body: "From data modeling and backend architecture to UI polish and cloud delivery, I tend to work across the full stack rather than a single layer.",
-  },
-  {
-    title: "I care about operating reality",
-    body: "Good software has to survive ambiguity, review cycles, and evolving requirements, especially in enterprise and AI-assisted products.",
-  },
-];
+
 
 function Home() {
   return (
@@ -120,45 +107,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="page-section">
-        <div className="layout-container">
-          <div className="statement-grid">
-            <article className="statement-panel">
-              <p className="card-kicker">How I work</p>
-              <h2 className="statement-title">Technical depth with product calm.</h2>
-              <p className="statement-copy">
-                I enjoy problems where clear UX, dependable systems, and applied AI all need to coexist. That usually means solving for operator clarity and engineering quality at the same time.
-              </p>
-              <div className="statement-list">
-                {workingStyle.map((item) => (
-                  <div key={item.title} className="statement-item">
-                    <strong>{item.title}</strong>
-                    <span className="muted">{item.body}</span>
-                  </div>
-                ))}
-              </div>
-            </article>
 
-            <aside className="accent-panel">
-              <p className="mini-heading">Current momentum</p>
-              <div className="mini-metrics">
-                <div className="mini-metric">
-                  <strong>Baker Hughes</strong>
-                  <span className="muted">Building an AI-assisted classification workflow for enterprise operations.</span>
-                </div>
-                <div className="mini-metric">
-                  <strong>4 publications</strong>
-                  <span className="muted">Applied AI, cloud traffic classification, health monitoring, and network security.</span>
-                </div>
-                <div className="mini-metric">
-                  <strong>Hackathon results</strong>
-                  <span className="muted">Top 1% at CODE RED&apos;25 and Top 10 at the ELCIA Next-Gen Hackathon.</span>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
 
 
 
@@ -193,17 +142,15 @@ function Home() {
                 )}
               </div>
               <p className="muted">{profile.projects[0].summary}</p>
-              <div className="project-outcome">
+              <div className="project-detail-box">
+                <strong>Problem</strong> {profile.projects[0].goal}
+              </div>
+              <div className="project-detail-box">
+                <strong>System work</strong> {profile.projects[0].contribution}
+              </div>
+              <div className="project-detail-box">
                 <strong>Outcome</strong> {profile.projects[0].outcome}
               </div>
-              <ul className="list-reset project-notes">
-                <li>
-                  <strong>Problem</strong> {profile.projects[0].goal}
-                </li>
-                <li>
-                  <strong>System work</strong> {profile.projects[0].contribution}
-                </li>
-              </ul>
               <div className="stack-list">
                 {profile.projects[0].stack.map((item) => (
                   <span key={item} className="stack-item">

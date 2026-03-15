@@ -66,15 +66,13 @@ function Projects() {
                 )}
               </div>
               <p className="muted">{profile.projects[0].summary}</p>
-              <ul className="list-reset project-notes">
-                <li>
-                  <strong>Problem</strong> {profile.projects[0].goal}
-                </li>
-                <li>
-                  <strong>System work</strong> {profile.projects[0].contribution}
-                </li>
-              </ul>
-              <div className="project-outcome">
+              <div className="project-detail-box">
+                <strong>Problem</strong> {profile.projects[0].goal}
+              </div>
+              <div className="project-detail-box">
+                <strong>System work</strong> {profile.projects[0].contribution}
+              </div>
+              <div className="project-detail-box">
                 <strong>Outcome</strong> {profile.projects[0].outcome}
               </div>
               <div className="stack-list">
@@ -95,17 +93,15 @@ function Projects() {
                 </div>
                 <h3>{project.name}</h3>
                 <p className="muted">{project.summary}</p>
-                <ul className="list-reset project-notes">
-                  <li>
-                    <strong>Problem</strong> {project.goal}
-                  </li>
-                  <li>
-                    <strong>System work</strong> {project.contribution}
-                  </li>
-                  <li>
-                    <strong>Outcome</strong> {project.outcome}
-                  </li>
-                </ul>
+                <div className="project-detail-box">
+                  <strong>Problem</strong> {project.goal}
+                </div>
+                <div className="project-detail-box">
+                  <strong>System work</strong> {project.contribution}
+                </div>
+                <div className="project-detail-box">
+                  <strong>Outcome</strong> {project.outcome}
+                </div>
                 <div className="stack-list">
                   {project.stack.map((item) => (
                     <span key={item} className="stack-item">

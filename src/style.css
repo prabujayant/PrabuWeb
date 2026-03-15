@@ -712,6 +712,9 @@ button:focus-visible {
   margin: 0;
   font-size: 1.22rem;
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .content-card p,
@@ -919,12 +922,14 @@ button:focus-visible {
 
 .project-featured-title {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  line-height: 0.98;
-  max-width: 14ch;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.project-outcome {
+.project-detail-box {
   padding: 14px 16px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
@@ -932,8 +937,9 @@ button:focus-visible {
   color: var(--text-soft);
 }
 
-.project-outcome strong {
+.project-detail-box strong {
   color: var(--text);
+  margin-right: 6px;
 }
 
 .project-link {
