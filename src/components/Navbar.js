@@ -18,10 +18,11 @@ function Navbar() {
     <header className="top-nav">
       <div className="top-nav__inner">
         <Link to="/" className="nav-brand" aria-label="Go to home">
-          Prabu Jayant
+          <span className="nav-brand__name">Prabu Jayant</span>
+          <span className="nav-brand__role">Software Engineer</span>
         </Link>
 
-        <nav className="nav-links" aria-label="Primary">
+        <nav className="nav-links" aria-label="Primary navigation">
           {NAV_LINKS.map(({ to, label, end }) => (
             <NavLink
               key={to}
@@ -37,14 +38,16 @@ function Navbar() {
         </nav>
 
         <div className="nav-actions">
-          <a className="nav-inline-link" href={contact.email}>
+          <a className="nav-inline-link nav-inline-link--cta" href={contact.email} target="_blank" rel="noreferrer">
             Say hello
           </a>
           <button
             type="button"
             className="theme-toggle"
             onClick={toggleTheme}
+            aria-pressed={theme === "dark"}
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            title={`Theme: ${theme}`}
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           </button>

@@ -6,17 +6,10 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.26.1",
     "date-fns": "^2.30.0",
     "lucide-react": "^0.525.0",
-    "memfs": "^4.9.3",
     "react": "^17.0.2",
-    "react-activity-calendar": "^1.7.0",
-    "react-calendar-heatmap": "^1.9.0",
     "react-dom": "^17.0.2",
-    "react-github-calendar": "^3.2.2",
-    "react-icons": "^4.8.0",
-    "react-parallax-tilt": "^1.7.42",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "serve": "^14.2.4",
@@ -31,8 +24,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -46,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "css-minimizer-webpack-plugin": "^3.4.1"
   }
 }

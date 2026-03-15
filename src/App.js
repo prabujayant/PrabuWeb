@@ -5,6 +5,7 @@ import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
+import ErrorBoundary from "./components/ErrorBoundary";
 import {
   BrowserRouter as Router,
   Route,
@@ -36,8 +37,20 @@ function App() {
 
   useEffect(() => {
     document.body.dataset.theme = theme;
+    document.documentElement.dataset.theme = theme;
     window.localStorage.setItem("prefers-theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    const handleStorage = (event) => {
+      if (event.key === "prefers-theme" && (event.newValue === "light" || event.newValue === "dark")) {
+        setTheme(event.newValue);
+      }
+    };
+
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
+  }, []);
 
   const toggleTheme = () =>
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
@@ -54,16 +67,21 @@ function App() {
     <ThemeContext.Provider value={themeValue}>
       <Router>
         <div className="app-shell">
+          <a className="skip-link" href="#main-content">
+            Skip to content
+          </a>
           <Navbar />
           <ScrollToTop />
-          <main className="app-main">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/resume" element={<Resume />} />
-              <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
+          <main className="app-main" id="main-content" role="main">
+            <ErrorBoundary>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="*" element={<Navigate to="/" />} />
+              </Routes>
+            </ErrorBoundary>
           </main>
           <Footer />
         </div>

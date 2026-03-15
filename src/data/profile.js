@@ -8,8 +8,8 @@ const contactLinks = {
 
 export const profile = {
   name: "Prabu Jayant",
-  tagline: "Software developer building reliable, user-focused products",
-  location: "Bengaluru, India",
+  tagline: "Software engineer building AI-assisted products, distributed systems, and reliable workflow software",
+  location: "Bangalore, India",
   email: "prabu.jayant2022@gmail.com",
   phone: "+91 8904261616",
   links: [
@@ -18,80 +18,75 @@ export const profile = {
     { label: "Portfolio", url: contactLinks.portfolio },
   ],
   intro:
-    "Hi, I'm Prabu Jayant from Bengaluru, India. I'm pursuing a B.E. in Computer Science Engineering (Cybersecurity) at RV College of Engineering, exploring how machine learning, AI, and security can work together in practical ways.",
+    "I'm Prabu Jayant, a Computer Science (Cybersecurity) student at RV College of Engineering and a Software Engineering Intern at Baker Hughes. I build full-stack products that combine practical AI, dependable systems, and clear operator workflows.",
   summary:
-    "I enjoy shaping software that feels steady and thoughtful. Most days I move between full-stack web work, data pipelines, and the guardrails that keep them trustworthy. I care about humane developer experiences, clear communication, and learning in public.",
+    "Recent work has centered on React and Flask applications, PostgreSQL data models, ML-assisted classification flows, and cloud deployments that need to stay auditable, reviewable, and useful in real operating environments.",
   education: [
     {
-      school: "RV College of Engineering, Bengaluru",
+      school: "RV College of Engineering, Bangalore",
       degree: "B.E. Computer Science (Cybersecurity)",
       period: "2022 - 2026",
       gpa: "GPA 8.75",
+      coursework: [
+        "Data Structures",
+        "Algorithms",
+        "Operating Systems",
+        "Computer Networks",
+        "Database Systems",
+        "Machine Learning",
+      ],
     },
   ],
   experience: [
     {
-      company: "Juniper Networks",
-      role: "Software Developer - SaaS Traffic Intelligence",
-      period: "Jul 2024 - Feb 2025",
+      company: "Baker Hughes",
+      role: "Software Engineering Intern",
+      period: "Jan 2026 - Present",
       accomplishments: [
-        "Co-designed an SSL proxy pipeline that processed 1M+ SaaS events per day and supplied labelled datasets to three analytics teams.",
-        "Productionised a classifier that held 98% accuracy in noisy conditions, cutting manual log triage by roughly 60% during the pilot.",
-        "Set up validation dashboards and handover notes so the next rotation could ship updates without a relearn.",
+        "Engineered a full-stack AI-assisted product classification platform with React, Flask, and PostgreSQL for structured intake, regional queues, and enterprise partner workflows.",
+        "Designed the database model for requests, line items, attachments, and audit trails, with optimized filtering, search, and export paths.",
+        "Integrated a hybrid BERT-CNN prediction flow with human review and approvals, then validated the application on Microsoft Azure for enterprise-ready deployment.",
       ],
     },
     {
-      company: "SkySecure Ltd",
-      role: "Security Engineering Intern",
-      period: "Nov 2023 - Dec 2023",
+      company: "Juniper Networks",
+      role: "Software Engineering Intern",
+      period: "Jul 2024 - Feb 2025",
       accomplishments: [
-        "Built a streaming threat-detection prototype that ingested packet data, scored it with an ML model, and triggered alerts in under two seconds.",
-        "Partnered with security operations to catalogue edge cases and evaluation metrics so they could iterate confidently after my internship.",
+        "Engineered a high-throughput SSL proxy data pipeline with Python automation scripts for real-time SaaS traffic decryption and monitoring.",
+        "Built a full-stack classification service that reached 98% accuracy for known services through backend optimization and model tuning.",
+        "Worked across a hybrid agile team on validation models that improved network reliability and expanded the production-quality dataset for downstream ML systems.",
       ],
     },
   ],
   projects: [
     {
+      name: "CoLab - Real-Time Collaborative Platform",
+      context: "Distributed systems build",
+      status: "CI/CD-enabled product",
+      summary:
+        "Low-latency collaborative editing platform designed for concurrent multi-user sessions, durable persistence, and secure access control.",
+      goal: "Enable real-time document collaboration without sacrificing consistency, session security, or deployment discipline.",
+      contribution:
+        "Designed the CRDT and WebSocket architecture, optimized PostgreSQL persistence through Prisma ORM, and wired JWT auth with Redis-backed session handling.",
+      outcome:
+        "Delivered a secure collaboration stack with automated testing and deployment pipelines using GitHub Actions and Docker across the development lifecycle.",
+      stack: ["TypeScript", "React", "Node.js", "Redis", "PostgreSQL", "WebSockets"],
+      link: "https://github.com/prabujayant/CoLab",
+    },
+    {
       name: "DefenSys - Intelligent Cyber Defense Platform",
-      context: "Research collaboration",
-      status: "Open-source repo",
+      context: "Applied security platform",
+      status: "Research-backed prototype",
       summary:
-        "Full-stack platform that gives security teams real-time visibility into IoT traffic and lets them rehearse \"what if\" incidents safely.",
-      goal: "Make it easy to blacklist malicious IPs and replay attacks without touching production systems.",
+        "Full-stack cyber defense platform with real-time threat visualization and containerized IoT simulation for attack-response workflows.",
+      goal: "Give teams a safe environment to observe threats and validate automated defenses without touching production systems.",
       contribution:
-        "Led the backend and dashboard build. Shipped Dockerised services, a Flask API, and runbooks that guided operators through simulations.",
+        "Built the React dashboard and Flask services, containerized the simulation environment, and implemented Redis-backed queues for asynchronous defense tasks.",
       outcome:
-        "Adopted by our research lab to demonstrate 95%+ malware detection accuracy across 25 families; published in the DefenSys paper.",
-      stack: ["Python", "Flask", "React", "Docker", "TensorFlow", "Redis"],
+        "Shipped a resilient prototype for real-time threat demos and published research on intelligent cyber defense workflows.",
+      stack: ["Python", "Flask", "React", "Docker", "Redis"],
       link: "https://github.com/prabujayant/DefenSys",
-    },
-    {
-      name: "Terra - Smart Carbon Footprint Tracker",
-      context: "Personal project",
-      status: "Live demo soon",
-      summary:
-        "Carbon tracking companion that combines OCR, third-party APIs, and playful analytics to keep sustainability habits lightweight.",
-      goal: "Help users record purchases quickly and see the impact without managing spreadsheets.",
-      contribution:
-        "Implemented OCR ingestion, Firebase auth, and dashboard flows; wired up OpenFoodFacts and EasyOCR for automatic data capture.",
-      outcome:
-        "Pilot group logged 200+ receipts in two weeks; the learnings powered a campus talk on everyday sustainability.",
-      stack: ["Python", "Flask", "React", "Firebase", "OCR"],
-      link: "https://github.com/prabujayant/Terra",
-    },
-    {
-      name: "OnlyCabs - Intelligent Ride-Hailing Platform",
-      context: "Hackathon build",
-      status: "Prototype",
-      summary:
-        "Ride-hailing concept that experiments with fair driver allocation, real-time tracking, and a microservices backend.",
-      goal: "Reduce rider wait times during peak hours while keeping driver utilisation healthy.",
-      contribution:
-        "Built the driver matching microservice in Node.js, a React Native rider app, and Firebase-backed real-time updates.",
-      outcome:
-        "Placed in the top 10 of a 500-team hackathon; judges highlighted the clarity of the service boundaries and monitoring story.",
-      stack: ["React Native", "Firebase", "Python", "Node.js", "Express.js"],
-      link: "https://github.com/prabujayant",
     },
   ],
   leadership: [
@@ -99,20 +94,86 @@ export const profile = {
       title: "Event Management Lead, Google Developer Student Clubs (RVCE)",
       period: "Aug 2023 - Present",
       description:
-        'Organised "Tech Tank", a university hackathon for 500+ participants and fostered inclusive, high-energy builder programs.',
+        'Led Tech Tank for 500+ students, owning event operations, technical infrastructure, and cross-team coordination for the GDSC-RVCE community.',
     },
   ],
   achievements: [
-    "4th place at CODE RED'25 Hackathon (Top 1% of 1000+ teams).",
-    "Top 10 at ELCIA Next-Gen Hackathon, IIITB (500+ teams).",
-    "Published research on intrusion detection in network traffic using LSTM at IEEE.",
-    "Co-authored papers on smart health monitoring, SaaS traffic classification, and containerised malware defence.",
+    "4th place at CODE RED'25 Hackathon, finishing in the top 1% of 1,000+ teams.",
+    "Top 10 at the ELCIA Next-Gen Hackathon at IIIT Bangalore.",
+    "Co-authored four peer-reviewed papers across IEEE Access, ICCCNT, ICWIHI, and intelligent cyber-physical systems research venues.",
   ],
-  skills: {
-    languages: ["Python", "Java", "C/C++", "JavaScript", "SQL"],
-    technologies: ["Flask", "Node.js", "React", "Express.js", "MongoDB", "Firebase", "Docker", "Git"],
-    concepts: ["Data Structures & Algorithms", "System Design", "Operating Systems", "Computer Networks"],
-  },
+  skills: [
+    {
+      title: "Languages",
+      items: ["Python", "C/C++", "Java", "TypeScript", "JavaScript"],
+    },
+    {
+      title: "Frontend",
+      items: ["React.js", "Next.js", "Redux", "HTML5", "Tailwind CSS"],
+    },
+    {
+      title: "Backend & systems",
+      items: ["Node.js", "Express.js", "Flask", "REST APIs", "GraphQL", "Microservices"],
+    },
+    {
+      title: "Databases",
+      items: ["PostgreSQL", "pgvector", "MongoDB", "Redis", "Firebase", "SQL modeling"],
+    },
+    {
+      title: "AI / ML",
+      items: ["PyTorch", "TensorFlow", "BERT", "CNN", "LSTM", "LangChain", "LangGraph", "RAG", "OpenAI API"],
+    },
+    {
+      title: "Cloud & DevOps",
+      items: ["Microsoft Azure", "AWS", "Docker", "GitHub Actions", "Git", "Bash", "PowerShell"],
+    },
+    {
+      title: "Distributed systems",
+      items: ["CRDTs", "WebSockets", "Redis queues", "Concurrent systems design"],
+    },
+    {
+      title: "Core CS",
+      items: ["Data Structures & Algorithms", "System Design", "Operating Systems", "Computer Networks"],
+    },
+  ],
+  publications: [
+    {
+      title:
+        "CASB Security Analytics for Encrypted SaaS Traffic: A Hybrid Transformer-Based Classification Framework in Enterprise Cloud Ecosystems",
+      venue: "IEEE Access",
+      year: "2025",
+      citedBy: "Cited by 1+",
+      summary:
+        "Research on enterprise SaaS traffic classification using transformer-based approaches for encrypted cloud environments.",
+      link: "https://scholar.google.com/citations?user=s4ldIOYAAAAJ&hl=en&oi=sra",
+    },
+    {
+      title: "Adaptive ML Framework for SaaS Traffic Classification in Cloud Ecosystem",
+      venue: "ICWIHI 2025",
+      year: "2025",
+      summary:
+        "Applied ML work focused on cloud traffic classification and practical observability for SaaS ecosystems.",
+      link: "https://drive.google.com/file/d/1B3tt_W8u3wbktvR13hm7hObToNdV87Ww/view",
+    },
+    {
+      title: "Smart Health Monitoring and Anomaly Detection Using IoT and AI",
+      venue: "Intelligent Cyber Physical Systems 2024",
+      year: "2024",
+      citedBy: "Cited by 19",
+      summary:
+        "IoT and AI research on health monitoring pipelines and anomaly detection in connected systems.",
+      link: "https://ieeexplore.ieee.org/document/10724486",
+    },
+    {
+      title: "Intrusion Detection in Network Traffic Using LSTM and Deep Learning",
+      venue: "IEEE ICCCNT 2024",
+      year: "2024",
+      citedBy: "Cited by 5",
+      summary:
+        "Security research on sequence modeling for intrusion detection in network traffic using LSTM-based methods.",
+      link: "https://ieeexplore.ieee.org/document/10696283",
+    },
+  ],
 };
 
 export const contact = contactLinks;

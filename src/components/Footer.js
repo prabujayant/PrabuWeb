@@ -16,7 +16,10 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__inner">
-        <span>&copy; {year} Prabu Jayant. Crafted with curiosity.</span>
+        <div className="footer__copy">
+          <strong>Prabu Jayant</strong>
+          <span>&copy; {year} Crafted for thoughtful teams, practical AI, and reliable systems.</span>
+        </div>
         <div className="footer__links" aria-label="Social links">
           {footerLinks.map(({ label, url, icon: Icon }) => (
             <a key={label} href={url} target="_blank" rel="noreferrer">
