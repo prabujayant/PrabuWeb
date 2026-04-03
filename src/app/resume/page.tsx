@@ -43,43 +43,40 @@ export default function ResumePage() {
   return (
     <div className="px-4 pb-16 pt-8 sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-6xl flex-col gap-8">
-        <section className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+        <section>
           <Card className="bg-card/90">
             <CardHeader className="gap-4 p-8 sm:p-10">
               <Badge variant="accent" className="w-fit">
                 Resume
               </Badge>
-              <h1 className="font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
-                A recruiter-friendly snapshot of current work
-              </h1>
-              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                The summary below is backed by a server-rendered PDF generated
-                from the same typed content that powers the rest of the site.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Button asChild size="lg">
-                  <a href="/resume.pdf" target="_blank" rel="noreferrer">
-                    Download PDF
-                    <Download className="size-4" />
-                  </a>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <a
-                    href={siteConfig.socialLinks[0].href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    LinkedIn
-                    <ExternalLink className="size-4" />
-                  </a>
-                </Button>
+              <div className="flex items-start justify-between gap-8">
+                <div>
+                  <h1 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+                    Resume
+                  </h1>
+                  <p className="mt-3 max-w-2xl text-base leading-7 sm:text-lg sm:leading-8 text-muted-foreground">
+                    Work experience, education, and publications.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                  <Button asChild size="sm" className="sm:size-lg">
+                    <a href="/resume.pdf" target="_blank" rel="noreferrer">
+                      Download PDF
+                      <Download className="size-4" />
+                    </a>
+                  </Button>
+                  <Button asChild variant="outline" size="sm" className="sm:size-lg">
+                    <a
+                      href={siteConfig.socialLinks[0].href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      LinkedIn
+                      <ExternalLink className="size-4" />
+                    </a>
+                  </Button>
+                </div>
               </div>
-            </CardHeader>
-          </Card>
-
-          <Card className="bg-card/85">
-            <CardHeader className="p-8">
-              <ResumeNarrative />
             </CardHeader>
           </Card>
         </section>
@@ -98,20 +95,20 @@ export default function ResumePage() {
           ))}
         </section>
 
-        <section className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+        <section className="grid gap-6 lg:grid-cols-[1fr_1fr]">
           <Card className="bg-card/85">
-            <CardHeader className="p-8">
-              <CardTitle>Quick summary</CardTitle>
-              <CardDescription>
+            <CardHeader className="p-5 sm:p-8">
+              <CardTitle className="text-xl sm:text-2xl">Quick summary</CardTitle>
+              <CardDescription className="text-xs sm:text-sm">
                 The important story, without making someone dig through the PDF.
               </CardDescription>
             </CardHeader>
-            <CardContent className="grid gap-4 p-8 pt-0">
-              <div className="rounded-[1.5rem] border border-border/70 bg-background/60 p-5">
-                <h3 className="font-serif text-xl font-semibold text-foreground">
+            <CardContent className="grid gap-3 sm:gap-4 p-5 sm:p-8 pt-0">
+              <div className="rounded-[1.5rem] border border-border/70 bg-background/60 p-3 sm:p-5">
+                <h3 className="font-serif text-lg sm:text-xl font-semibold text-foreground">
                   Experience
                 </h3>
-                <ul className="mt-3 space-y-3 text-sm leading-7 text-muted-foreground">
+                <ul className="mt-2 sm:mt-3 space-y-2 sm:space-y-3 text-xs sm:text-sm leading-6 sm:leading-7 text-muted-foreground">
                   {experience.map((item) => (
                     <li key={item.company}>
                       <span className="font-semibold text-foreground">
@@ -122,11 +119,11 @@ export default function ResumePage() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-[1.5rem] border border-border/70 bg-background/60 p-5">
-                <h3 className="font-serif text-xl font-semibold text-foreground">
+              <div className="rounded-[1.5rem] border border-border/70 bg-background/60 p-3 sm:p-5">
+                <h3 className="font-serif text-lg sm:text-xl font-semibold text-foreground">
                   Projects
                 </h3>
-                <ul className="mt-3 space-y-3 text-sm leading-7 text-muted-foreground">
+                <ul className="mt-2 sm:mt-3 space-y-2 sm:space-y-3 text-xs sm:text-sm leading-6 sm:leading-7 text-muted-foreground">
                   {projects.map((item) => (
                     <li key={item.name}>
                       <span className="font-semibold text-foreground">
@@ -137,11 +134,11 @@ export default function ResumePage() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-[1.5rem] border border-border/70 bg-background/60 p-5">
-                <h3 className="font-serif text-xl font-semibold text-foreground">
+              <div className="rounded-[1.5rem] border border-border/70 bg-background/60 p-3 sm:p-5">
+                <h3 className="font-serif text-lg sm:text-xl font-semibold text-foreground">
                   Academics and research
                 </h3>
-                <ul className="mt-3 space-y-3 text-sm leading-7 text-muted-foreground">
+                <ul className="mt-2 sm:mt-3 space-y-2 sm:space-y-3 text-xs sm:text-sm leading-6 sm:leading-7 text-muted-foreground">
                   <li>
                     <span className="font-semibold text-foreground">
                       {education[0].school}
@@ -158,9 +155,9 @@ export default function ResumePage() {
           </Card>
 
           <Card className="overflow-hidden bg-card/85">
-            <CardHeader className="p-8">
-              <CardTitle>Inline preview</CardTitle>
-              <CardDescription>
+            <CardHeader className="p-5 sm:p-8">
+              <CardTitle className="text-xl sm:text-2xl">Inline preview</CardTitle>
+              <CardDescription className="text-xs sm:text-sm">
                 Scroll the live PDF below or open it in a new tab for a cleaner
                 reading experience.
               </CardDescription>
@@ -169,7 +166,7 @@ export default function ResumePage() {
               <iframe
                 src="/resume.pdf"
                 title={`${siteConfig.name} resume preview`}
-                className="min-h-[760px] w-full border-0"
+                className="w-full border-0 min-h-[500px] sm:min-h-[600px] lg:min-h-[760px]"
               />
             </CardContent>
           </Card>

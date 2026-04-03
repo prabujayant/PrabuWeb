@@ -111,8 +111,8 @@ export const fitAreas = [
 
 export const featuredThemes = [
   "Clear proof of enterprise, research, and full-stack delivery.",
-  "Balanced for recruiters who scan quickly and engineers who read deeper.",
-  "Framed around outcomes, not just tool lists.",
+  "Balanced for recruiters who scan fast and engineers who read deeper.",
+  "Built around outcomes, not just tool lists.",
 ];
 
 export const experience = [

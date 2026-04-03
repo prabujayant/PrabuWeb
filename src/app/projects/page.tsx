@@ -19,7 +19,7 @@ export default function ProjectsPage() {
   return (
     <div className="px-4 pb-16 pt-8 sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-6xl flex-col gap-8">
-        <section className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+        <section className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-start">
           <Card className="bg-card/90">
             <CardHeader className="gap-4 p-8 sm:p-10">
               <Badge variant="accent" className="w-fit">

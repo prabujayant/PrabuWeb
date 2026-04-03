@@ -52,12 +52,13 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden items-center gap-3 md:flex">
-            <Button asChild variant="outline" size="sm">
-              <a href={siteConfig.emailHref}>
-                Say hello
-                <ArrowUpRight className="size-3.5" />
-              </a>
-            </Button>
+            <a
+              href="mailto:prabu.jayant2022@gmail.com"
+              className="rounded-full px-4 py-2 text-sm font-medium border border-border bg-background/70 text-foreground hover:bg-muted/80 hover:border-foreground/40 transition-all"
+            >
+              Say hello
+              <span className="ml-2 inline-block">→</span>
+            </a>
             <ThemeToggle />
           </div>
 
@@ -91,7 +92,7 @@ export function SiteHeader() {
               ))}
             </nav>
             <Button asChild variant="default" size="sm">
-              <a href={siteConfig.emailHref}>Say hello</a>
+              <a href="mailto:prabu.jayant2022@gmail.com">Say hello</a>
             </Button>
           </div>
         ) : null}
