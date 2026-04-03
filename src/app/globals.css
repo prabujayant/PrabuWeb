@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #f5efe4;
+  --foreground: #1d1b17;
+  --surface: #fbf7f0;
+  --card: rgba(255, 252, 246, 0.82);
+  --muted: #ece4d8;
+  --muted-foreground: rgba(29, 27, 23, 0.72);
+  --border: rgba(73, 55, 37, 0.14);
+  --ring: rgba(189, 96, 61, 0.4);
+  --accent: #bc5f3f;
+}
+
+.dark {
+  --background: #0d131c;
+  --foreground: #f5efe5;
+  --surface: #131c27;
+  --card: rgba(19, 28, 39, 0.82);
+  --muted: #182433;
+  --muted-foreground: rgba(245, 239, 229, 0.68);
+  --border: rgba(233, 223, 207, 0.14);
+  --ring: rgba(226, 154, 103, 0.45);
+  --accent: #e29a67;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-manrope);
+  --font-serif: var(--font-fraunces);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+}
+
+@keyframes blob1 {
+  0% { transform: translate3d(0px, 0px, 0) scale(1); }
+  33% { transform: translate3d(50px, -50px, 0) scale(1.1); }
+  66% { transform: translate3d(-40px, 30px, 0) scale(0.9); }
+  100% { transform: translate3d(0px, 0px, 0) scale(1); }
+}
+
+@keyframes blob2 {
+  0% { transform: translate3d(0px, 0px, 0) scale(1); }
+  33% { transform: translate3d(-50px, 50px, 0) scale(1.2); }
+  66% { transform: translate3d(40px, -30px, 0) scale(0.8); }
+  100% { transform: translate3d(0px, 0px, 0) scale(1); }
+}
+
+@keyframes blob3 {
+  0% { transform: translate3d(0px, 0px, 0) scale(1); }
+  33% { transform: translate3d(30px, 60px, 0) scale(0.9); }
+  66% { transform: translate3d(-30px, -40px, 0) scale(1.1); }
+  100% { transform: translate3d(0px, 0px, 0) scale(1); }
+}
+
+@keyframes blob4 {
+  0% { transform: translate3d(0px, 0px, 0) scale(1); }
+  33% { transform: translate3d(-60px, -30px, 0) scale(1.1); }
+  66% { transform: translate3d(50px, 50px, 0) scale(0.9); }
+  100% { transform: translate3d(0px, 0px, 0) scale(1); }
+}
+
+.animate-blob1 { animation: blob1 25s infinite alternate ease-in-out; }
+.animate-blob2 { animation: blob2 30s infinite alternate ease-in-out; }
+.animate-blob3 { animation: blob3 35s infinite alternate ease-in-out; }
+.animate-blob4 { animation: blob4 40s infinite alternate ease-in-out; }
