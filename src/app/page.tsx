@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight, Download } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -45,10 +45,6 @@ export default function HomePage() {
                 <a href={siteConfig.phoneHref}>{siteConfig.phone}</a>
               </div>
               <div className="flex flex-wrap gap-3">
-                <a href="mailto:prabu.jayant2022@gmail.com" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium h-12 px-6 py-3 text-base bg-accent text-background shadow-sm hover:bg-accent/90 transition-all">
-                  Start a conversation
-                  <ArrowRight className="size-4" />
-                </a>
                 <Button asChild variant="outline" size="lg">
                   <Link href="/projects">See selected work</Link>
                 </Button>
@@ -86,10 +82,6 @@ export default function HomePage() {
                 Open to full-stack roles, collaborations, and technical discussions. Interested in AI-assisted products and distributed systems.
               </p>
               <div className="flex flex-wrap gap-2">
-                <a href="mailto:prabu.jayant2022@gmail.com" className="inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-xs h-9 border border-border bg-background/70 text-foreground hover:bg-muted/80 hover:border-foreground/40 transition-all font-medium">
-                  Email me
-                  <ArrowRight className="size-3.5" />
-                </a>
                 <Button asChild size="sm" variant="outline">
                   <a href="https://www.linkedin.com/in/prabu-jayant-6b316b251/" target="_blank" rel="noreferrer">
                     LinkedIn
@@ -158,7 +150,7 @@ export default function HomePage() {
               </div>
               <div className="flex flex-wrap gap-2 pt-2">
                 {featuredProject.stack.map((item) => (
-                  <Badge key={item} variant="secondary" className="text-xs">{item}</Badge>
+                  <Badge key={item} className="text-xs">{item}</Badge>
                 ))}
               </div>
             </CardContent>

@@ -52,13 +52,6 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden items-center gap-3 md:flex">
-            <a
-              href="mailto:prabu.jayant2022@gmail.com"
-              className="rounded-full px-4 py-2 text-sm font-medium border border-border bg-background/70 text-foreground hover:bg-muted/80 hover:border-foreground/40 transition-all"
-            >
-              Say hello
-              <span className="ml-2 inline-block">→</span>
-            </a>
             <ThemeToggle />
           </div>
 
@@ -91,9 +84,6 @@ export function SiteHeader() {
                 </Link>
               ))}
             </nav>
-            <Button asChild variant="default" size="sm">
-              <a href="mailto:prabu.jayant2022@gmail.com">Say hello</a>
-            </Button>
           </div>
         ) : null}
       </div>
