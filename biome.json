@@ -1,0 +1,53 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.4.8/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "src/app/**/*.ts",
+      "src/app/**/*.tsx",
+      "src/components/site/**/*.ts",
+      "src/components/site/**/*.tsx",
+      "src/components/ui/**/*.ts",
+      "src/components/ui/**/*.tsx",
+      "src/content/**/*.ts",
+      "src/content/**/*.tsx",
+      "src/lib/**/*.ts",
+      "src/lib/**/*.tsx",
+      "content/**/*.mdx",
+      "package.json",
+      "biome.json",
+      "components.json",
+      "next.config.ts",
+      "postcss.config.mjs",
+      "tsconfig.json",
+      "mdx-components.tsx",
+      "next-env.d.ts"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "semicolons": "always"
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true
+    }
+  }
+}
