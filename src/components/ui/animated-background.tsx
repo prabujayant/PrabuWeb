@@ -25,16 +25,14 @@ export function AnimatedBackground() {
   const isMobileRef = useRef(false);
 
   useEffect(() => {
-    // Detect mobile device
+        // Detect mobile device (but we won't skip effects!)
     isMobileRef.current =
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent,
       ) || window.innerWidth < 768;
 
-    // Skip all effects on mobile
-    if (isMobileRef.current) {
-      return;
-    }
+    // We used to skip effects on mobile here, but now we let the paint flow everywhere!
+    // Removed: if (isMobileRef.current) return;
 
     const cx = window.innerWidth / 2;
     const cy = window.innerHeight / 2;
@@ -43,12 +41,18 @@ export function AnimatedBackground() {
     pos1.current = { x: cx, y: cy };
     pos2.current = { x: cx, y: cy };
 
-    const onMove = (e: MouseEvent) => {
-      mouse.current.x = e.clientX;
-      mouse.current.y = e.clientY;
+        const onMove = (e: MouseEvent | TouchEvent) => {
+      if ('touches' in e) {
+        mouse.current.x = e.touches[0].clientX;
+        mouse.current.y = e.touches[0].clientY;
+      } else {
+        mouse.current.x = e.clientX;
+        mouse.current.y = e.clientY;
+      }
     };
 
     window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("touchmove", onMove, { passive: true });
 
     let frameCount = 0;
 
@@ -141,6 +145,7 @@ export function AnimatedBackground() {
 
     return () => {
       window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("touchmove", onMove);
       cancelAnimationFrame(rafId.current);
       splashes.current.forEach((s) => s.el.remove());
     };
