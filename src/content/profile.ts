@@ -56,13 +56,13 @@ export const siteConfig = {
   phone: "+91 8904261616",
   phoneHref: "tel:+918904261616",
   description:
-    "Prabu Jayant builds AI-assisted products, distributed systems, and dependable workflow software with a focus on calm execution and clear product thinking.",
+    "Prabu Jayant makes complex systems simple. I build intelligent platforms, robust distributed systems, and software that people actually want to use.",
   tagline:
-    "Software engineer building AI-assisted products, distributed systems, and reliable workflow software",
+    "I write software to make the complex simple.",
   intro:
-    "I build full-stack software that blends practical AI, dependable systems, and operator-friendly workflows for teams that need products to hold up under real constraints.",
+    "I am an engineer who cares about the craft. I build full-stack platforms, distributed systems, and intelligent tools that solve real human problems, not just algorithmic ones. Good software should feel invisible.",
   summary:
-    "Recent work spans React and Flask applications, PostgreSQL data modeling, ML-assisted classification flows, and cloud delivery shaped by reviewability, trust, and clean handoff.",
+    "Right now, I'm building AI-assisted tools at Baker Hughes. Before that, I untangled network pipelines at Juniper Networks. My goal is always the same: build reliable, beautiful systems that stand up to the real world.",
   nav: [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
@@ -102,16 +102,16 @@ export const homeMetrics = [
 ] satisfies Metric[];
 
 export const fitAreas = [
-  "Product-minded software engineering",
-  "AI-assisted workflows with review loops",
-  "Distributed systems and collaboration tooling",
-  "Full-stack platform work with strong data models",
+  "Building things people actually want",
+  "Bridging AI research with real-world products",
+  "Designing resilient distributed systems",
+  "Sweating the details in full-stack architecture",
 ];
 
 export const featuredThemes = [
-  "Clear proof of enterprise, research, and full-stack delivery.",
-  "Balanced for recruiters who scan fast and engineers who read deeper.",
-  "Built around outcomes, not just tool lists.",
+  "Software should be a joy to use.",
+  "Complexity belongs in the backend, not the UI.",
+  "If it isn't reliable, it isn't finished.",
 ];
 
 export const experience = [
@@ -120,9 +120,9 @@ export const experience = [
     role: "Software Engineering Intern",
     period: "Jan 2026 - Present",
     accomplishments: [
-      "Engineered a full-stack AI-assisted product classification platform with React, Flask, and PostgreSQL for structured intake, regional queues, and partner-facing review loops.",
-      "Designed normalized schemas for requests, attachments, line items, and audit trails with optimized filtering, search, and export paths.",
-      "Integrated a hybrid BERT-CNN prediction flow with human review and approvals, then validated the application on Microsoft Azure for enterprise-ready deployment.",
+      "Built a full-stack AI platform that actually makes sense for operators, seamlessly merging React, Flask, and PostgreSQL into a single cohesive experience.",
+      "Untangled messy enterprise data by designing clean, normalized schemas that made searching and filtering instantly fast.",
+      "Delivered a hybrid BERT-CNN model to production on Azure, proving that machine learning only matters if it ships and works reliably.",
     ],
   },
   {
@@ -130,9 +130,9 @@ export const experience = [
     role: "Software Engineering Intern",
     period: "Jul 2024 - Feb 2025",
     accomplishments: [
-      "Engineered a high-throughput SSL proxy data pipeline with Python automation for real-time SaaS traffic decryption and monitoring.",
-      "Built a classification service that reached 98% accuracy for known services through backend optimization and model tuning.",
-      "Worked across a hybrid agile team on validation models that improved network reliability and expanded the production-quality dataset for downstream ML systems.",
+      "Engineered a high-throughput proxy pipeline to ingest and decrypt live SaaS traffic without dropping a beat.",
+      "Tuned a classification service until it hit 98% accuracy—because 'good enough' isn't good enough when network reliability is on the line.",
+      "Collaborated with an agile team to expand datasets and build models that laid the foundation for smarter downstream AI systems.",
     ],
   },
 ] satisfies ExperienceItem[];
