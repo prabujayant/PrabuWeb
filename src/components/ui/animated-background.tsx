@@ -22,8 +22,17 @@ export function AnimatedBackground() {
   const prevMouse = useRef({ x: 0, y: 0 });
   const splashes = useRef<Splash[]>([]);
   const hueRef = useRef(0);
+  const isMobileRef = useRef(false);
 
   useEffect(() => {
+    // Detect mobile device
+    isMobileRef.current = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+
+    // Skip all effects on mobile
+    if (isMobileRef.current) {
+      return;
+    }
+
     const cx = window.innerWidth / 2;
     const cy = window.innerHeight / 2;
     mouse.current = { x: cx, y: cy };
@@ -131,7 +140,6 @@ export function AnimatedBackground() {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(rafId.current);
       splashes.current.forEach((s) => s.el.remove());
-      splashes.current = [];
     };
   }, []);
 

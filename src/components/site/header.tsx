@@ -71,13 +71,13 @@ export function SiteHeader() {
         </div>
 
         {open ? (
-          <div className="mt-4 space-y-3 rounded-[1.5rem] border border-border/60 bg-muted/45 p-4 md:hidden">
-            <nav className="flex flex-col gap-2">
+          <div className="mt-3 space-y-2 rounded-[1.5rem] border border-border/60 bg-muted/45 p-3 sm:mt-4 sm:space-y-3 sm:p-4 md:hidden">
+            <nav className="flex flex-col gap-1 sm:gap-2">
               {siteConfig.nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-2xl px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-background hover:text-foreground"
+                  className="rounded-2xl px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-background hover:text-foreground sm:px-4 sm:py-3"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
