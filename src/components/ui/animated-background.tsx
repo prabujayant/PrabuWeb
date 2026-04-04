@@ -154,8 +154,8 @@ export function AnimatedBackground() {
       {/* Base background */}
       <div className="absolute inset-0 bg-background dark:bg-[#050505]" />
 
-      {/* Ambient floating blobs — deep, rich tones */}
-      <div className="absolute inset-0">
+      {/* Ambient floating blobs — deep, rich tones (hidden on mobile) */}
+      <div className="absolute inset-0 hidden md:block">
         <div
           className="absolute top-[-10%] left-[-5%] w-[55vw] h-[55vw] rounded-full blur-[120px] will-change-transform animate-blob1"
           style={{ background: "rgba(88, 28, 135, 0.55)" }}
