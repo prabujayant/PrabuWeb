@@ -9,12 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  fitAreas,
-  homeMetrics,
-  projects,
-  siteConfig,
-} from "@/content/profile";
+import { fitAreas, homeMetrics, projects, siteConfig } from "@/content/profile";
 import HomeNarrative from "../../content/home.mdx";
 
 export default function HomePage() {
@@ -79,11 +74,17 @@ export default function HomePage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-sm leading-7 text-muted-foreground">
-                Open to full-stack roles, collaborations, and technical discussions. Interested in AI-assisted products and distributed systems.
+                Open to full-stack roles, collaborations, and technical
+                discussions. Interested in AI-assisted products and distributed
+                systems.
               </p>
               <div className="flex flex-wrap gap-2">
                 <Button asChild size="sm" variant="outline">
-                  <a href="https://www.linkedin.com/in/prabu-jayant-6b316b251/" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://www.linkedin.com/in/prabu-jayant-6b316b251/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     LinkedIn
                     <ArrowUpRight className="size-3.5" />
                   </a>
@@ -140,17 +141,22 @@ export default function HomePage() {
             </CardHeader>
             <CardContent className="grid gap-3 p-8 pt-0">
               <div className="rounded-[1.5rem] border border-border/70 bg-background/65 p-4 text-sm leading-6 text-muted-foreground">
-                <span className="font-semibold text-foreground">Problem:</span> {featuredProject.goal}
+                <span className="font-semibold text-foreground">Problem:</span>{" "}
+                {featuredProject.goal}
               </div>
               <div className="rounded-[1.5rem] border border-border/70 bg-background/65 p-4 text-sm leading-6 text-muted-foreground">
-                <span className="font-semibold text-foreground">Solution:</span> {featuredProject.contribution}
+                <span className="font-semibold text-foreground">Solution:</span>{" "}
+                {featuredProject.contribution}
               </div>
               <div className="rounded-[1.5rem] border border-border/70 bg-background/65 p-4 text-sm leading-6 text-muted-foreground">
-                <span className="font-semibold text-foreground">Result:</span> {featuredProject.outcome}
+                <span className="font-semibold text-foreground">Result:</span>{" "}
+                {featuredProject.outcome}
               </div>
               <div className="flex flex-wrap gap-2 pt-2">
                 {featuredProject.stack.map((item) => (
-                  <Badge key={item} className="text-xs">{item}</Badge>
+                  <Badge key={item} className="text-xs">
+                    {item}
+                  </Badge>
                 ))}
               </div>
             </CardContent>

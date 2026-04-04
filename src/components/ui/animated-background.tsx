@@ -26,7 +26,10 @@ export function AnimatedBackground() {
 
   useEffect(() => {
     // Detect mobile device
-    isMobileRef.current = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+    isMobileRef.current =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      ) || window.innerWidth < 768;
 
     // Skip all effects on mobile
     if (isMobileRef.current) {
@@ -89,8 +92,8 @@ export function AnimatedBackground() {
             top: 0;
             left: 0;
             transform: translate3d(${mouse.current.x - size / 2 + offsetX}px, ${mouse.current.y - size / 2 + offsetY}px, 0) scale(0.6);
-            background: radial-gradient(circle, hsla(${hueRef.current}, 100%, 45%, 0.85) 0%, hsla(${hueRef.current + 35}, 95%, 35%, 0.5) 35%, transparent 70%);
-            filter: blur(45px);
+            background: radial-gradient(circle, hsla(${hueRef.current}, 100%, 55%, 1) 0%, hsla(${hueRef.current + 35}, 95%, 45%, 0.8) 35%, transparent 70%);
+            filter: blur(35px);
             mix-blend-mode: screen;
             pointer-events: none;
             will-change: transform, opacity;
@@ -107,7 +110,7 @@ export function AnimatedBackground() {
         }
 
         // Cap splash count so performance stays smooth
-        while (splashes.current.length > 60) {
+        while (splashes.current.length > 80) {
           const old = splashes.current.shift();
           if (old) old.el.remove();
         }
@@ -144,7 +147,10 @@ export function AnimatedBackground() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div
+      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+      style={{ maxHeight: "100vh" }}
+    >
       {/* Base background */}
       <div className="absolute inset-0 bg-background dark:bg-[#050505]" />
 
@@ -171,36 +177,39 @@ export function AnimatedBackground() {
       {/* Splash container */}
       <div ref={splashContainer} className="absolute inset-0" />
 
-      {/* Primary cursor glow — deep rich colors */}
-      <div
-        ref={glow1}
-        className="absolute top-0 left-0 will-change-transform"
-        style={{
-          width: 600,
-          height: 600,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle at center, rgba(190,0,80,0.9) 0%, rgba(200,60,0,0.7) 20%, rgba(100,40,180,0.6) 40%, rgba(180,120,0,0.3) 60%, transparent 75%)",
-          filter: "blur(60px)",
-          mixBlendMode: "screen",
-        }}
-      />
+      {/* Primary cursor glow — deep rich colors (only on desktop) */}
+      {!isMobileRef.current && (
+        <div
+          ref={glow1}
+          className="absolute top-0 left-0 will-change-transform"
+          style={{
+            width: 600,
+            height: 600,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle at center, rgba(190,0,80,1) 0%, rgba(200,60,0,0.9) 20%, rgba(100,40,180,0.8) 40%, rgba(180,120,0,0.5) 60%, transparent 75%)",
+            filter: "blur(40px)",
+            mixBlendMode: "screen",
+          }}
+        />
+      )}
 
-      {/* Secondary trail — deeper purple */}
-      <div
-        ref={glow2}
-        className="absolute top-0 left-0 will-change-transform"
-        style={{
-          width: 700,
-          height: 700,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle at center, rgba(80,20,160,0.8) 0%, rgba(150,30,80,0.6) 25%, rgba(180,60,0,0.35) 50%, transparent 70%)",
-          filter: "blur(100px)",
-          mixBlendMode: "screen",
-        }}
-      />
+      {/* Secondary trail — deeper purple (only on desktop) */}
+      {!isMobileRef.current && (
+        <div
+          ref={glow2}
+          className="absolute top-0 left-0 will-change-transform"
+          style={{
+            width: 700,
+            height: 700,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle at center, rgba(80,20,160,1) 0%, rgba(150,30,80,0.8) 25%, rgba(180,60,0,0.6) 50%, transparent 70%)",
+            filter: "blur(70px)",
+            mixBlendMode: "screen",
+          }}
+        />
+      )}
     </div>
   );
 }
-

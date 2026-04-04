@@ -16,7 +16,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl rounded-full border border-border/70 bg-background/75 px-4 py-3 shadow-lg shadow-black/5 backdrop-blur sm:px-6">
+      <div className="mx-auto max-w-6xl rounded-full border border-border/70 bg-background/95 backdrop-blur-md px-4 py-3 shadow-lg shadow-black/5 sm:px-6 md:bg-background/75">
         <div className="flex items-center justify-between gap-4">
           <Link href="/" className="min-w-0">
             <div className="font-serif text-lg font-semibold tracking-tight text-foreground">
@@ -71,13 +71,13 @@ export function SiteHeader() {
         </div>
 
         {open ? (
-          <div className="mt-3 space-y-2 rounded-[1.5rem] border border-border/60 bg-muted/45 p-3 sm:mt-4 sm:space-y-3 sm:p-4 md:hidden">
+          <div className="mt-3 space-y-2 rounded-[1.5rem] border border-border/60 bg-background/95 backdrop-blur-md p-3 sm:mt-4 sm:space-y-3 sm:p-4 md:hidden">
             <nav className="flex flex-col gap-1 sm:gap-2">
               {siteConfig.nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-2xl px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-background hover:text-foreground sm:px-4 sm:py-3"
+                  className="rounded-2xl px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground sm:px-4 sm:py-3"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}

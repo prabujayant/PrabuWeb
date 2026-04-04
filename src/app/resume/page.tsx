@@ -65,7 +65,12 @@ export default function ResumePage() {
                       <Download className="size-4" />
                     </a>
                   </Button>
-                  <Button asChild variant="outline" size="sm" className="sm:size-lg">
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="sm:size-lg"
+                  >
                     <a
                       href={siteConfig.socialLinks[0].href}
                       target="_blank"
@@ -98,7 +103,9 @@ export default function ResumePage() {
         <section className="grid gap-6 lg:grid-cols-[1fr_1fr]">
           <Card className="bg-card/85">
             <CardHeader className="p-5 sm:p-8">
-              <CardTitle className="text-xl sm:text-2xl">Quick summary</CardTitle>
+              <CardTitle className="text-xl sm:text-2xl">
+                Quick summary
+              </CardTitle>
               <CardDescription className="text-xs sm:text-sm">
                 The important story, without making someone dig through the PDF.
               </CardDescription>
@@ -156,7 +163,9 @@ export default function ResumePage() {
 
           <Card className="overflow-hidden bg-card/85">
             <CardHeader className="p-5 sm:p-8">
-              <CardTitle className="text-xl sm:text-2xl">Inline preview</CardTitle>
+              <CardTitle className="text-xl sm:text-2xl">
+                Inline preview
+              </CardTitle>
               <CardDescription className="text-xs sm:text-sm">
                 Scroll the live PDF below or open it in a new tab for a cleaner
                 reading experience.
