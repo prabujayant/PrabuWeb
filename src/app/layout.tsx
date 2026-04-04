@@ -20,7 +20,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://prabujayant.vercel.app"),
+
+  metadataBase: new URL("https://www.prabujayant.com"),
   title: {
     default: "Prabu Jayant – Software Engineer | AI Systems | Portfolio",
     template: `%s | Prabu Jayant`,
@@ -37,7 +38,8 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} | ${siteConfig.role}`,
     description: siteConfig.description,
     type: "website",
-    url: "https://prabujayant.vercel.app",
+
+    url: "https://www.prabujayant.com",
     images: [
       {
         url: "/pj-icon.svg",
@@ -60,8 +62,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     "@context": "https://schema.org",
     "@type": "Person",
     name: siteConfig.name,
-    url: "https://prabujayant.vercel.app",
-    image: "https://prabujayant.vercel.app/pj-icon.svg",
+
+
+    url: "https://www.prabujayant.com",
+    image: "https://www.prabujayant.com/pj-icon.svg",
     description:
       "Software engineer building AI systems, distributed systems, and scalable products",
     sameAs: [

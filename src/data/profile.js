@@ -3,7 +3,7 @@ const contactLinks = {
   phone: "tel:+918904261616",
   linkedin: "https://www.linkedin.com/in/prabu-jayant-6b316b251/",
   github: "https://github.com/prabujayant",
-  portfolio: "https://prabujayant.vercel.app/",
+  portfolio: "https://www.prabujayant.com/",
 };
 
 export const profile = {
