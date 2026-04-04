@@ -70,8 +70,8 @@ export function SiteHeader() {
           </div>
         </div>
 
-        {open ? (
-          <div className="mt-3 space-y-2 rounded-[1.5rem] border border-border/60 bg-background/95 backdrop-blur-md p-3 sm:mt-4 sm:space-y-3 sm:p-4 md:hidden">
+                {open ? (
+          <div className="mt-3 space-y-2 rounded-[1.5rem] border border-border/60 bg-background/95 backdrop-blur-md p-3 sm:mt-4 sm:space-y-3 sm:p-4 md:hidden overflow-hidden">
             <nav className="flex flex-col gap-1 sm:gap-2">
               {siteConfig.nav.map((item) => (
                 <Link
