@@ -75,7 +75,6 @@ export const siteConfig = {
       label: "LinkedIn",
     },
     { href: "https://github.com/prabujayant", label: "GitHub" },
-    { href: "https://www.prabujayant.com/", label: "Portfolio" },
   ] satisfies ExternalLink[],
 } as const;
 
