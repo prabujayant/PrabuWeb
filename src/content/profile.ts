@@ -79,10 +79,10 @@ export const siteConfig = {
 } as const;
 
 export const homeMetrics = [
-  {
+    {
     label: "Current role",
     value: "Baker Hughes",
-    detail: "Software Engineering Intern building AI-assisted workflows",
+    detail: "Digital Technology Intern building AI-assisted workflows",
   },
   {
     label: "Research",
@@ -115,9 +115,9 @@ export const featuredThemes = [
 ];
 
 export const experience = [
-  {
+    {
     company: "Baker Hughes",
-    role: "Software Engineering Intern",
+    role: "Digital Technology Intern",
     period: "Jan 2026 - Present",
     accomplishments: [
       "Built a full-stack AI platform that actually makes sense for operators, seamlessly merging React, Flask, and PostgreSQL into a single cohesive experience.",
@@ -142,7 +142,7 @@ export const education = [
     school: "RV College of Engineering, Bengaluru",
     degree: "B.E. Computer Science (Cybersecurity)",
     period: "2022 - 2026",
-    gpa: "GPA 8.75",
+    gpa: "GPA 8.78",
     coursework: [
       "Data Structures",
       "Algorithms",
