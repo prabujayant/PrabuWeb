@@ -28,10 +28,9 @@ export const metadata: Metadata = {
   },
   description:
     "Prabu Jayant is a software engineer building AI systems, distributed systems, and scalable products. View portfolio, projects, and experience.",
-  icons: {
+    icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/pj-icon.svg", type: "image/svg+xml" },
+      { url: "/pj-icon.svg", type: "image/svg+xml", sizes: "any" },
     ],
   },
   openGraph: {
