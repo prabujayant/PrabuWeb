@@ -79,15 +79,15 @@ export const siteConfig = {
 } as const;
 
 export const homeMetrics = [
-    {
+  {
     label: "Current role",
     value: "Baker Hughes",
     detail: "Digital Technology Intern building AI-assisted workflows",
   },
   {
     label: "Research",
-    value: "4 papers",
-    detail: "Published across IEEE Access, ICCCNT, and applied AI venues",
+    value: "5 papers",
+    detail: "Published across IEEE Access, IEEE conferences, and applied AI venues",
   },
   {
     label: "Recognition",
@@ -115,7 +115,7 @@ export const featuredThemes = [
 ];
 
 export const experience = [
-    {
+  {
     company: "Baker Hughes",
     role: "Digital Technology Intern",
     period: "Jan 2026 - Present",

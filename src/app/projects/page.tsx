@@ -15,6 +15,19 @@ export const metadata = {
   title: "Projects",
 };
 
+const showcasedPublications = [
+  {
+    title:
+      "DefenSys: An Integrated Platform for Malware Detection and Containerized Attack Simulation using Deep Learning",
+    venue: "IEEE Conference Publication",
+    year: "2025",
+    summary:
+      "Cybersecurity research on an integrated platform that combines deep-learning-based malware detection with containerized attack simulation for safe threat analysis workflows.",
+    href: "https://ieeexplore.ieee.org/document/11459625/",
+  },
+  ...publications,
+];
+
 export default function ProjectsPage() {
   return (
     <div className="px-4 pb-16 pt-8 sm:px-6 lg:px-8">
@@ -102,13 +115,14 @@ export default function ProjectsPage() {
             <CardHeader className="p-8">
               <CardTitle>Publications as credibility</CardTitle>
               <CardDescription>
-                Four peer-reviewed publications that reinforce the work in
+                {showcasedPublications.length} peer-reviewed publications that
+                reinforce the work in
                 applied AI, security, cloud traffic classification, and
                 systems-oriented research.
               </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4 p-8 pt-0 md:grid-cols-2">
-              {publications.map((item) => (
+              {showcasedPublications.map((item) => (
                 <div
                   key={item.title}
                   className="rounded-[1.5rem] border border-border/70 bg-background/60 p-5"

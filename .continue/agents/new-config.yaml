@@ -1,0 +1,14 @@
+name: Local Dev Setup
+version: 1.0.0
+schema: v1
+
+models:
+  - title: Qwen Coder
+    provider: ollama
+    model: qwen2.5-coder:7b
+    apiBase: http://localhost:11434
+
+  - title: Fast Model
+    provider: ollama
+    model: mistral:7b
+    apiBase: http://localhost:11434

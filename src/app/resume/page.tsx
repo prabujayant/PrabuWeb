@@ -29,7 +29,7 @@ const resumeSignals = [
   },
   {
     label: "Publications",
-    value: `${publications.length} papers`,
+    value: "5 papers",
     detail: "IEEE Access, ICCCNT, ICWIHI, and applied AI venues",
   },
   {
