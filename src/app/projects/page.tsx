@@ -15,36 +15,23 @@ export const metadata = {
   title: "Projects",
 };
 
-const showcasedPublications = [
-  {
-    title:
-      "DefenSys: An Integrated Platform for Malware Detection and Containerized Attack Simulation using Deep Learning",
-    venue: "IEEE Conference Publication",
-    year: "2025",
-    summary:
-      "Cybersecurity research on an integrated platform that combines deep-learning-based malware detection with containerized attack simulation for safe threat analysis workflows.",
-    href: "https://ieeexplore.ieee.org/document/11459625/",
-  },
-  ...publications,
-];
-
 export default function ProjectsPage() {
   return (
-    <div className="px-4 pb-16 pt-8 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8">
+    <div className="px-4 pb-12 pt-6 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6">
         <section className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-start">
           <Card className="bg-card/90">
-            <CardHeader className="gap-4 p-8 sm:p-10">
+            <CardHeader className="gap-4 p-6 sm:p-8">
               <Badge variant="accent" className="w-fit">
                 Projects
               </Badge>
-              <h1 className="font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
-                Product work, systems thinking, and research evidence
+              <h1 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+                Things I've built and papers I've written
               </h1>
-              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                This page is the proof layer: projects, architecture choices,
-                and publications that reinforce the technical areas where I go
-                deep.
+              <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+                A plain list of the projects and publications I'm most happy
+                to show, with a little context about the problem behind each
+                one.
               </p>
             </CardHeader>
           </Card>
@@ -66,7 +53,7 @@ export default function ProjectsPage() {
                       <Badge variant="accent">{project.context}</Badge>
                       <Badge>{project.status}</Badge>
                     </div>
-                    <CardTitle className="text-3xl">{project.name}</CardTitle>
+                    <CardTitle className="text-2xl">{project.name}</CardTitle>
                     <CardDescription className="max-w-4xl text-base">
                       {project.summary}
                     </CardDescription>
@@ -113,16 +100,14 @@ export default function ProjectsPage() {
         <section>
           <Card className="bg-card/85">
             <CardHeader className="p-8">
-              <CardTitle>Publications as credibility</CardTitle>
+              <CardTitle>Publications</CardTitle>
               <CardDescription>
-                {showcasedPublications.length} peer-reviewed publications that
-                reinforce the work in
-                applied AI, security, cloud traffic classification, and
-                systems-oriented research.
+                {publications.length} peer-reviewed papers, mostly on applied
+                AI, network security, and traffic classification.
               </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4 p-8 pt-0 md:grid-cols-2">
-              {showcasedPublications.map((item) => (
+              {publications.map((item) => (
                 <div
                   key={item.title}
                   className="rounded-[1.5rem] border border-border/70 bg-background/60 p-5"
@@ -135,6 +120,11 @@ export default function ProjectsPage() {
                   <h3 className="mt-4 font-serif text-xl font-semibold text-foreground">
                     {item.title}
                   </h3>
+                  {item.authors ? (
+                    <p className="mt-2 text-xs leading-5 text-muted-foreground">
+                      {item.authors}
+                    </p>
+                  ) : null}
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">
                     {item.summary}
                   </p>

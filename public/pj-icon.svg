@@ -1,53 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <defs>
-    <!-- Premium metallic gradient inspired by Apple -->
-    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="40%" style="stop-color:#764ba2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+    <!-- Dark squircle, matching the site background -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#111319;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#07080b;stop-opacity:1" />
     </linearGradient>
-    
-    <!-- Subtle highlight for glass effect -->
-    <radialGradient id="highlight" cx="35%" cy="35%" r="50%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.4" />
-      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.1" />
-      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    <!-- Warm amber monogram, matching the accent -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f2bd7f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d98342;stop-opacity:1" />
+    </linearGradient>
+    <!-- Soft top highlight -->
+    <radialGradient id="sheen" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.07" />
+      <stop offset="60%" style="stop-color:#ffffff;stop-opacity:0" />
     </radialGradient>
-    
-    <!-- Inner shadow for depth -->
-    <linearGradient id="innerShadow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#000000;stop-opacity:0.05" />
-      <stop offset="100%" style="stop-color:#000000;stop-opacity:0.15" />
-    </linearGradient>
-    
-    <!-- Premium drop shadow -->
-    <filter id="premiumShadow">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
-      <feOffset dx="0" dy="6" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.25"/>
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
-  
-  <!-- Main background with filter -->
-  <g filter="url(#premiumShadow)">
-    <rect width="200" height="200" fill="url(#metalGrad)" rx="50" ry="50"/>
-  </g>
-  
-  <!-- Glass/highlight effect -->
-  <circle cx="70" cy="70" r="65" fill="url(#highlight)"/>
-  
-  <!-- Inner depth shadow -->
-  <rect width="200" height="100" fill="url(#innerShadow)" rx="50" ry="50"/>
-  
-  <!-- Polished border -->
-  <rect x="3" y="3" width="194" height="194" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" rx="47" ry="47"/>
-  
-  <!-- Premium PJ text with kerning -->
-  <text x="100" y="115" font-family="'-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', sans-serif" font-size="72" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" letter-spacing="-1.5" style="paint-order: stroke; stroke: rgba(0,0,0,0.1); stroke-width: 0.5px;">PJ</text>
+
+  <!-- Rounded tile background -->
+  <rect width="200" height="200" rx="50" ry="50" fill="url(#bgGrad)" />
+  <rect width="200" height="200" rx="50" ry="50" fill="url(#sheen)" />
+
+  <!-- Hairline border -->
+  <rect x="1.5" y="1.5" width="197" height="197" rx="48.5" ry="48.5"
+        fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1.5" />
+
+  <!-- Amber monogram -->
+  <text x="100" y="112" font-family="Georgia, 'Times New Roman', serif"
+        font-size="74" font-weight="600" fill="url(#accentGrad)"
+        text-anchor="middle" dominant-baseline="middle" letter-spacing="-1">PJ</text>
+
+  <!-- Small accent underline dot -->
+  <circle cx="100" cy="140" r="3" fill="#e6a363" opacity="0.9" />
 </svg>

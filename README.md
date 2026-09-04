@@ -1,67 +1,51 @@
-# Prabu Jayant – Portfolio
+# Prabu Jayant — Portfolio
 
-A minimal, uniform personal site for a Software Developer and Cybersecurity Engineer. Built with React and tuned for clarity, speed, and consistency. The UI supports light/dark themes, a resume viewer, and clean project/research sections.
+Personal site for Prabu Jayant: software engineer and ML researcher building AI-assisted products at Baker Hughes.
 
-## Features
-- Minimal UI with consistent cards and spacing
-- Light/Dark theme toggle (persisted; respects system preference)
-- Sections: Home, About, Projects, Research, Resume
-- In‑page PDF resume viewer with download CTA
-- SEO meta updated (Open Graph/Twitter tags)
-- Route‑level code‑splitting for faster initial load
+## Stack
 
-## Tech Stack
-- React 17 + React Router 6
-- react-pdf for resume viewing
-- Typewriter effect on the hero role chips
-- Vanilla CSS with theme variables
+- Next.js 16 (App Router, MDX) · React 19 · TypeScript
+- Tailwind CSS v4 (`@tailwindcss/postcss`)
+- `@next/mdx` — long-form content lives in `content/*.mdx`
+- `next-themes` for light/dark theming
+- Deployed on Vercel: https://prabujayant.vercel.app
 
-## Quick Start
+## Getting started
+
 ```bash
-# Install
 npm install
-
-# Dev (CRA dev server)
-npm run dev
-
-# Production build
-npm run build
-
-# Serve the built app locally
-npm start   # serves /build with `serve -s build`
+npm run dev        # dev server (Turbopack) → http://localhost:3000
+npm run build      # production build
+npm start          # serve the production build
 ```
 
-## Project Structure (key files)
-```
-src/
-  App.js                     # Routing, theme provider, lazy routes
-  style.css                  # Global styles + light/dark theme vars
-  components/
-    Navbar.js                # Sticky nav + theme toggle
-    Footer.js                # Simple footer + social links
-    Home/*                   # Hero, highlights, experience, socials
-    About/About.js           # Education, experience, projects, research, skills
-    Projects/Projects.js     # Projects + research cards
-    Resume/ResumeNew.js      # PDF viewer + download/email/LinkedIn CTAs
-  context/ThemeContext.js    # Theme context
-  Assets/PrabuJayant_Resume.pdf
+## Validation
+
+```bash
+npm run typecheck  # tsc --noEmit
+npm run lint       # biome check .
+npm run format     # biome format --write .
 ```
 
-## Theming
-- Theme is stored in `localStorage` and applied on `<html data-theme>`.
-- Variables live in `src/style.css` under `:root` (light) and `html[data-theme="dark"]`.
-- The toggle button sits in the navbar (`components/ThemeToggle.js`).
+## Project structure
 
-## Customization
-- Resume PDF: replace `src/Assets/PrabuJayant_Resume.pdf` and the viewer updates.
-- Socials: edit `SOCIAL_LINKS` in `components/Footer.js` and `components/Home/Home2.js`.
-- Copy: update sections in `components/Home/*`, `components/About/About.js`, and `components/Projects/Projects.js`.
+```
+src/app/           # routes & layouts (App Router)
+src/components/    # reusable UI (site/, ui/)
+src/content/       # structured data (profile.ts)
+src/lib/           # shared helpers
+content/*.mdx      # page narratives (home, about, projects, resume)
+public/            # static assets (resume.pdf, og.png, icons)
+```
 
-## Deployment
-Any static host works. After `npm run build`, deploy the `build/` folder.
-- Local preview: `npm start` (uses `serve -s build`).
-- GitHub Pages/Netlify/Vercel: configure to serve the `build` output.
+## Editing content
+
+- Structured data (experience, education, projects, publications, skills, metrics): `src/content/profile.ts`
+- Long-form page copy: `content/*.mdx`
+- Downloadable/embedded resume: replace `public/resume.pdf`
 
 ## Notes
-- This project was refactored for a minimal, content‑first design with semantic HTML and accessible focus states. If you add new sections, follow the existing card and grid patterns to keep visual rhythm consistent.
+
+- Dev and build run on Turbopack (Next 16 default). If you switch bundlers or ever hit stale build state, delete `.next/` and rebuild.
+
 

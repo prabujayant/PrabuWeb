@@ -34,6 +34,7 @@ export type ProjectItem = {
 };
 
 export type PublicationItem = {
+  authors?: string;
   citedBy?: string;
   href: string;
   summary: string;
@@ -56,13 +57,12 @@ export const siteConfig = {
   phone: "+91 8904261616",
   phoneHref: "tel:+918904261616",
   description:
-    "Prabu Jayant makes complex systems simple. I build intelligent platforms, robust distributed systems, and software that people actually want to use.",
-  tagline:
-    "I write software to make the complex simple.",
+    "Prabu Jayant is a software engineer and published ML researcher at Baker Hughes, building AI-assisted products, distributed systems, and software that actually ships.",
+  tagline: "I mostly build software. Some of it ends up published.",
   intro:
-    "I am an engineer who cares about the craft. I build full-stack platforms, distributed systems, and intelligent tools that solve real human problems, not just algorithmic ones. Good software should feel invisible.",
+    "I build AI-assisted tools at Baker Hughes: document-classification models that keep people in the loop, and platforms that quietly absorb the repetitive parts of real work. Earlier, at Juniper Networks, I worked on high-throughput network analytics. Underneath all of it, I care about software that is reliable, observable, and pleasant to work with.",
   summary:
-    "Right now, I'm building AI-assisted tools at Baker Hughes. Before that, I untangled network pipelines at Juniper Networks. My goal is always the same: build reliable, beautiful systems that stand up to the real world.",
+    "Away from shipping, I spend a lot of time on applied machine learning and security. I've co-authored five peer-reviewed papers on encrypted-traffic classification, intrusion detection, and cyber defense, and I'm most at home in the space where a research idea turns into something people actually use.",
   nav: [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
@@ -82,30 +82,30 @@ export const homeMetrics = [
   {
     label: "Current role",
     value: "Baker Hughes",
-    detail: "Digital Technology Intern building AI-assisted workflows",
+    detail: "Development Engineer building AI-assisted document classification",
   },
   {
-    label: "Research",
+    label: "Publications",
     value: "5 papers",
-    detail: "Published across IEEE Access, IEEE conferences, and applied AI venues",
+    detail: "IEEE Access + IEEE conferences · 34 citations · h-index 2",
   },
   {
     label: "Recognition",
     value: "Top 1%",
-    detail: "CODE RED'25 plus Top 10 at the ELCIA Next-Gen Hackathon",
+    detail: "CODE RED'25, 4th of 1,000+ teams · ELCIA Next-Gen Top 10",
   },
   {
-    label: "Strengths",
-    value: "Full stack + ML",
-    detail: "Systems, data modeling, product execution, and cloud delivery",
+    label: "Education",
+    value: "CGPA 8.87",
+    detail: "B.E. Computer Science (Cybersecurity) · RV College of Engineering",
   },
 ] satisfies Metric[];
 
 export const fitAreas = [
-  "Building things people actually want",
-  "Bridging AI research with real-world products",
-  "Designing resilient distributed systems",
-  "Sweating the details in full-stack architecture",
+  "Applied ML that actually ships",
+  "Distributed systems you can rely on",
+  "Full-stack product engineering",
+  "Security & published research",
 ];
 
 export const featuredThemes = [
@@ -117,22 +117,23 @@ export const featuredThemes = [
 export const experience = [
   {
     company: "Baker Hughes",
-    role: "Digital Technology Intern",
+    role: "Development Engineer",
     period: "Jan 2026 - Present",
     accomplishments: [
-      "Built a full-stack AI platform that actually makes sense for operators, seamlessly merging React, Flask, and PostgreSQL into a single cohesive experience.",
-      "Untangled messy enterprise data by designing clean, normalized schemas that made searching and filtering instantly fast.",
-      "Delivered a hybrid BERT-CNN model to production on Azure, proving that machine learning only matters if it ships and works reliably.",
+      "Promoted from Digital Technology Intern to Development Engineer (Jul 2026) after shipping the hybrid BERT-CNN classification platform to production.",
+      "Designed and trained a hybrid BERT-CNN NLP model for automated document classification at 85% accuracy, adding human-in-the-loop validation that cut manual audit effort by 50+ hours a week.",
+      "Engineered a full-stack classification platform (Python, Flask, React, PostgreSQL) with automated message queues, scaling partner intake throughput 3x across regional enterprise teams.",
+      "Architected production microservices on Microsoft Azure App Service with Microsoft Entra ID RBAC and GitHub Actions CI/CD, cutting deployment cycle times by 40% under a zero-trust model.",
     ],
   },
   {
     company: "Juniper Networks",
-    role: "Software Engineering Intern",
+    role: "Software Engineering Intern, Data & Analytics",
     period: "Jul 2024 - Feb 2025",
     accomplishments: [
-      "Engineered a high-throughput proxy pipeline to ingest and decrypt live SaaS traffic without dropping a beat.",
-      "Tuned a classification service until it hit 98% accuracy—because 'good enough' isn't good enough when network reliability is on the line.",
-      "Collaborated with an agile team to expand datasets and build models that laid the foundation for smarter downstream AI systems.",
+      "Engineered a high-throughput Python processing pipeline handling 1M+ daily network packets, enabling real-time monitoring and automated labeled datasets for security analytics research.",
+      "Built and statistically tuned a microservice classification platform reaching 98% accuracy on network service identification, lowering system latency by 25%.",
+      "Established automated unit testing and validation frameworks in an Agile R&D workflow, reducing dataset error rates by 30% while holding production SLA compliance.",
     ],
   },
 ] satisfies ExperienceItem[];
@@ -140,16 +141,17 @@ export const experience = [
 export const education = [
   {
     school: "RV College of Engineering, Bengaluru",
-    degree: "B.E. Computer Science (Cybersecurity)",
+    degree: "B.E. Computer Science and Engineering (Cybersecurity)",
     period: "2022 - 2026",
-    gpa: "GPA 8.78",
+    gpa: "CGPA 8.87",
     coursework: [
-      "Data Structures",
-      "Algorithms",
+      "Data Structures & Algorithms",
       "Operating Systems",
       "Computer Networks",
+      "System Design",
       "Database Systems",
       "Machine Learning",
+      "Applied Statistics",
     ],
   },
 ];
@@ -167,7 +169,7 @@ export const projects = [
   {
     name: "CoLab - Real-time Collaborative Editor",
     context: "Distributed systems build",
-    status: "Production-grade product",
+    status: "Shipped",
     summary:
       "High-performance real-time collaborative text editor with conflict-free synchronization, live presence cursors, and deep versioning built around CRDT principles.",
     goal: "Enable instant, conflict-free collaboration with secure session handling, auto-saving persistence, and version history snapshots.",
@@ -197,8 +199,16 @@ export const projects = [
     contribution:
       "Built the React dashboard and Flask services, containerized the simulation environment, and implemented Redis-backed queues for asynchronous defense tasks.",
     outcome:
-      "Shipped a resilient prototype for real-time threat demos and published research on intelligent cyber defense workflows.",
-    stack: ["Python", "Flask", "React", "Docker", "Redis"],
+      "Shipped a working prototype for real-time threat demos and published the research behind the approach.",
+    stack: [
+      "C/C++",
+      "Python",
+      "PyTorch",
+      "Docker",
+      "Kubernetes",
+      "Redis",
+      "Linux/Bash",
+    ],
     href: "https://github.com/prabujayant/DefenSys",
   },
 ] satisfies ProjectItem[];
@@ -209,109 +219,124 @@ export const publications = [
       "CASB Security Analytics for Encrypted SaaS Traffic: A Hybrid Transformer-Based Classification Framework in Enterprise Cloud Ecosystems",
     venue: "IEEE Access",
     year: "2025",
-    citedBy: "Cited by 1+",
+    authors:
+      "A. Ravi, B. Jnyanadeep, M. V. Gagana, P. Jayant, A. Pranav, and P. Siddappa",
     summary:
-      "Research on enterprise SaaS traffic classification using transformer-based approaches for encrypted cloud environments.",
+      "A hybrid transformer-based framework for classifying encrypted SaaS traffic in enterprise cloud ecosystems, combining contextual language modeling with convolutional features.",
     href: "https://scholar.google.com/citations?user=s4ldIOYAAAAJ&hl=en&oi=sra",
   },
   {
     title:
-      "Adaptive ML Framework for SaaS Traffic Classification in Cloud Ecosystem",
-    venue: "ICWIHI 2025",
+      "DefenSys: An Integrated Platform for Malware Detection and Containerized Attack Simulation Using Deep Learning",
+    venue: "ICOSEC",
     year: "2025",
+    authors: "E. Vincent, P. Jayant, and A. Chakkan",
     summary:
-      "Applied ML work focused on cloud traffic classification and practical observability for SaaS ecosystems.",
+      "Pairs deep-learning malware detection with containerized attack simulation so security teams can exercise threat responses in a safe environment.",
+    href: "https://ieeexplore.ieee.org/document/11459625/",
+  },
+  {
+    title: "Adaptive ML Framework for SaaS Traffic Classification in Cloud Ecosystem",
+    venue: "ICWIHMI",
+    year: "2025",
+    authors: "A. Ravi, B. Jnyanadeep, M. V. Gagana, P. Jayant, and M. Moharir",
+    summary:
+      "An adaptive machine-learning framework for SaaS traffic classification in cloud ecosystems, focused on practical deployment and observability.",
     href: "https://drive.google.com/file/d/1B3tt_W8u3wbktvR13hm7hObToNdV87Ww/view",
   },
   {
     title: "Smart Health Monitoring and Anomaly Detection Using IoT and AI",
-    venue: "Intelligent Cyber Physical Systems 2024",
+    venue: "ICICPS",
     year: "2024",
-    citedBy: "Cited by 19",
+    authors: "P. Jayant, E. Vincent, M. Moharir, and A. K. A. R.",
+    citedBy: "Cited by 26",
     summary:
-      "IoT and AI research on health monitoring pipelines and anomaly detection in connected systems.",
+      "Uses IoT sensors with AI-based anomaly detection for continuous health monitoring in connected systems.",
     href: "https://ieeexplore.ieee.org/document/10724486",
   },
   {
-    title:
-      "Intrusion Detection in Network Traffic Using LSTM and Deep Learning",
-    venue: "IEEE ICCCNT 2024",
+    title: "Intrusion Detection in Network Traffic Using LSTM and Deep Learning",
+    venue: "IEEE ICCCNT",
     year: "2024",
-    citedBy: "Cited by 5",
+    authors: "P. Jayant, M. P. Shetty, S. Jeevan, M. Moharir, and A. R. A. Kumar",
+    citedBy: "Cited by 7",
     summary:
-      "Security research on sequence modeling for intrusion detection in network traffic using LSTM-based methods.",
+      "Applies LSTM sequence models to network traffic for deep-learning based intrusion detection.",
     href: "https://ieeexplore.ieee.org/document/10696283",
   },
 ] satisfies PublicationItem[];
 
 export const skills = [
   {
-    title: "Languages",
-    items: ["Python", "C/C++", "Java", "TypeScript", "JavaScript"],
-  },
-  {
-    title: "Frontend",
-    items: ["React.js", "Next.js", "Redux", "HTML5", "Tailwind CSS"],
-  },
-  {
-    title: "Backend & systems",
+    title: "Core programming",
     items: [
-      "Node.js",
-      "Express.js",
-      "Flask",
+      "C/C++",
+      "Python",
+      "Java",
+      "TypeScript",
+      "JavaScript",
+      "SQL (query optimization, data modeling)",
+    ],
+  },
+  {
+    title: "Frontend & web",
+    items: ["React", "Next.js", "HTML5", "Tailwind CSS"],
+  },
+  {
+    title: "Backend & distributed systems",
+    items: [
       "REST APIs",
-      "GraphQL",
       "Microservices",
+      "Node.js",
+      "Flask",
+      "Redis queues",
+      "WebSockets",
+      "Concurrent systems design",
     ],
   },
   {
     title: "Databases",
     items: [
       "PostgreSQL",
-      "pgvector",
       "MongoDB",
       "Redis",
+      "pgvector",
       "Firebase",
       "SQL modeling",
     ],
   },
   {
-    title: "AI / ML",
+    title: "AI / ML & frameworks",
     items: [
       "PyTorch",
       "TensorFlow",
-      "BERT",
-      "CNN",
-      "LSTM",
-      "LangChain",
-      "LangGraph",
-      "RAG",
-      "OpenAI API",
+      "Scikit-learn",
+      "Transformers (BERT)",
+      "CNN / LSTM",
+      "Data pipelines",
+      "Telemetry & observability",
     ],
   },
   {
     title: "Cloud & DevOps",
     items: [
+      "Docker",
+      "Kubernetes",
       "Microsoft Azure",
       "AWS",
-      "Docker",
-      "GitHub Actions",
+      "GitHub Actions (CI/CD)",
+      "Linux / Bash",
       "Git",
-      "Bash",
-      "PowerShell",
     ],
-  },
-  {
-    title: "Distributed systems",
-    items: ["CRDTs", "WebSockets", "Redis queues", "Concurrent systems design"],
   },
   {
     title: "Core CS",
     items: [
-      "Data Structures & Algorithms",
-      "System Design",
       "Operating Systems",
       "Computer Networks",
+      "Data Structures & Algorithms",
+      "System Design",
+      "Multi-threading",
     ],
   },
 ] satisfies SkillGroup[];

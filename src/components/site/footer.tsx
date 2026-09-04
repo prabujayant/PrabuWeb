@@ -10,17 +10,17 @@ const iconMap = {
 
 export function SiteFooter() {
   return (
-    <footer className="px-4 pb-8 pt-10 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 rounded-[2rem] border border-border/70 bg-card/70 px-6 py-6 shadow-lg shadow-black/5 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <div className="font-serif text-lg font-semibold text-foreground">
+    <footer className="px-4 pb-10 pt-8 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 border-t border-border/70 pt-8 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-1.5">
+          <p className="font-serif text-lg font-semibold text-foreground">
             {siteConfig.name}
-          </div>
-          <p className="mt-1 max-w-2xl text-sm leading-7 text-muted-foreground">
+          </p>
+          <p className="max-w-md text-sm leading-6 text-muted-foreground">
             Crafted for thoughtful teams, practical AI, and reliable systems.
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5">
           {siteConfig.socialLinks.map((link) => {
             const Icon =
               iconMap[link.label as keyof typeof iconMap] ?? ArrowUpRight;
@@ -31,8 +31,8 @@ export function SiteFooter() {
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex size-10 items-center justify-center rounded-full border border-border/70 bg-background/70 text-muted-foreground transition hover:-translate-y-0.5 hover:text-foreground"
                 aria-label={link.label}
+                className="inline-flex size-10 items-center justify-center rounded-full text-muted-foreground transition hover:bg-muted hover:text-foreground"
               >
                 <Icon className="size-4" />
               </a>
@@ -40,8 +40,8 @@ export function SiteFooter() {
           })}
           <a
             href={siteConfig.emailHref}
-            className="inline-flex size-10 items-center justify-center rounded-full border border-border/70 bg-background/70 text-muted-foreground transition hover:-translate-y-0.5 hover:text-foreground"
             aria-label="Email"
+            className="inline-flex size-10 items-center justify-center rounded-full text-muted-foreground transition hover:bg-muted hover:text-foreground"
           >
             <Mail className="size-4" />
           </a>

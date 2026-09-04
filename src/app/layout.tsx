@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/site/footer";
 import { SiteHeader } from "@/components/site/header";
 import { Providers } from "@/components/site/providers";
+import { RevealSections } from "@/components/site/reveal-sections";
 import { siteConfig } from "@/content/profile";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import "./globals.css";
@@ -21,13 +22,12 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
 
-  metadataBase: new URL("https://www.prabujayant.com"),
+  metadataBase: new URL("https://prabujayant.vercel.app"),
   title: {
     default: "Prabu Jayant – Software Engineer | AI Systems | Portfolio",
     template: `%s | Prabu Jayant`,
   },
-  description:
-    "Prabu Jayant is a software engineer building AI systems, distributed systems, and scalable products. View portfolio, projects, and experience.",
+  description: siteConfig.description,
     icons: {
     icon: [
       { url: "/pj-icon.svg", type: "image/svg+xml", sizes: "any" },
@@ -38,21 +38,21 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     type: "website",
 
-    url: "https://www.prabujayant.com",
+    url: "https://prabujayant.vercel.app",
     images: [
       {
-        url: "/pj-icon.svg",
-        width: 200,
-        height: 200,
-        alt: "Prabu Jayant - PJ",
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Prabu Jayant — software engineer and ML researcher",
       },
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: `${siteConfig.name} | ${siteConfig.role}`,
     description: siteConfig.description,
-    images: ["/pj-icon.svg"],
+    images: ["/og.png"],
   },
 };
 
@@ -63,8 +63,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     name: siteConfig.name,
 
 
-    url: "https://www.prabujayant.com",
-    image: "https://www.prabujayant.com/pj-icon.svg",
+    url: "https://prabujayant.vercel.app",
+    image: "https://prabujayant.vercel.app/og.png",
     description:
       "Software engineer building AI systems, distributed systems, and scalable products",
     sameAs: [
@@ -83,6 +83,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${fraunces.variable} ${manrope.variable}`}
     >
       <head>
@@ -96,7 +97,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="relative flex min-h-screen flex-col overflow-x-hidden z-0">
             <AnimatedBackground />
             <SiteHeader />
-            <main className="flex-1">{children}</main>
+            <RevealSections>{children}</RevealSections>
             <SiteFooter />
           </div>
         </Providers>

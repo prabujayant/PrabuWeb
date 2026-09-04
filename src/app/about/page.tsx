@@ -21,21 +21,20 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="px-4 pb-16 pt-8 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8">
+    <div className="px-4 pb-12 pt-6 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6">
         <section className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-start">
           <Card className="bg-card/90">
-            <CardHeader className="gap-4 p-8 sm:p-10">
+            <CardHeader className="gap-4 p-6 sm:p-8">
               <Badge variant="accent" className="w-fit">
                 About
               </Badge>
-              <h1 className="font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
-                Building AI-assisted software with calm execution
+              <h1 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+                More about me and how I work
               </h1>
-              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                This is the longer story behind the portfolio: how I work, what
-                I optimize for, and the internships and communities that shaped
-                that approach.
+              <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+                The kinds of problems I like, the path that brought me here,
+                and the internships and communities along the way.
               </p>
               <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
                 <span>{siteConfig.location}</span>
@@ -60,7 +59,7 @@ export default function AboutPage() {
               <CardHeader className="gap-3 p-8">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
-                    <CardTitle className="text-3xl">{item.company}</CardTitle>
+                    <CardTitle className="text-2xl">{item.company}</CardTitle>
                     <CardDescription className="text-base">
                       {item.role}
                     </CardDescription>

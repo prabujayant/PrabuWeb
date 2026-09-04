@@ -10,22 +10,27 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { fitAreas, homeMetrics, projects, siteConfig } from "@/content/profile";
+import { HeroField } from "@/components/ui/hero-field";
 import HomeNarrative from "../../content/home.mdx";
 
 export default function HomePage() {
   const featuredProject = projects[0];
 
   return (
-    <div className="px-4 pb-16 pt-8 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8">
+    <div className="px-4 pb-12 pt-6 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6">
         <section>
-          <Card className="overflow-hidden border-accent/10 bg-card/90">
-            <CardHeader className="gap-5 p-8 sm:p-10">
-              <div className="space-y-4">
-                <h1 className="font-serif text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          <Card className="relative overflow-hidden border-accent/10 bg-card/90">
+            <HeroField />
+            <CardHeader className="relative gap-5 p-6 sm:p-10">
+              <div className="space-y-5">
+                <Badge variant="accent" className="w-fit">
+                  Development Engineer · Baker Hughes
+                </Badge>
+                <h1 className="max-w-3xl font-serif text-3xl font-medium leading-[1.12] tracking-tight text-foreground text-balance sm:text-4xl lg:text-5xl">
                   {siteConfig.tagline}
                 </h1>
-                <p className="text-lg leading-8 text-muted-foreground sm:text-xl">
+                <p className="text-base leading-7 text-muted-foreground sm:text-lg">
                   {siteConfig.intro}
                 </p>
                 <p className="text-base leading-8 text-muted-foreground">
@@ -96,12 +101,16 @@ export default function HomePage() {
 
         <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {homeMetrics.map((metric) => (
-            <Card key={metric.label} className="bg-card/80">
+            <Card key={metric.label} className="bg-card/70">
               <CardHeader className="p-6">
-                <CardDescription>{metric.label}</CardDescription>
-                <CardTitle className="text-2xl">{metric.value}</CardTitle>
+                <CardDescription className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                  {metric.label}
+                </CardDescription>
+                <CardTitle className="text-2xl font-medium tracking-tight sm:text-3xl">
+                  {metric.value}
+                </CardTitle>
               </CardHeader>
-              <CardContent className="p-6 pt-0 text-sm leading-7 text-muted-foreground">
+              <CardContent className="p-6 pt-0 text-sm leading-6 text-muted-foreground">
                 {metric.detail}
               </CardContent>
             </Card>
@@ -120,7 +129,7 @@ export default function HomePage() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <Badge variant="accent">{featuredProject.context}</Badge>
-                  <CardTitle className="mt-3 text-3xl">
+                  <CardTitle className="mt-3 text-2xl">
                     {featuredProject.name}
                   </CardTitle>
                 </div>

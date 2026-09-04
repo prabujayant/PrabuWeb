@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -15,81 +15,81 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-        <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
-      <div className={cn(
-        "mx-auto max-w-6xl border border-border/70 bg-background/95 backdrop-blur-md px-4 py-3 shadow-lg shadow-black/5 sm:px-6 md:bg-background/75",
-        open ? "rounded-[2rem]" : "rounded-full"
-      )}>
-        <div className="flex items-center justify-between gap-4">
-          <Link href="/" className="min-w-0">
-            <div className="font-serif text-lg font-semibold tracking-tight text-foreground">
-              {siteConfig.name}
-            </div>
-            <div className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              {siteConfig.role}
-            </div>
-          </Link>
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          className="flex min-w-0 items-baseline gap-2"
+          aria-label={`${siteConfig.name} — home`}
+        >
+          <span className="truncate font-serif text-lg font-semibold tracking-tight text-foreground">
+            {siteConfig.name}
+          </span>
+          <span className="hidden text-xs uppercase tracking-[0.2em] text-muted-foreground sm:inline">
+            {siteConfig.role}
+          </span>
+        </Link>
 
-          <nav className="hidden items-center gap-2 rounded-full border border-border/60 bg-muted/55 p-1 md:flex">
-            {siteConfig.nav.map((item) => {
-              const active =
-                item.href === "/"
-                  ? pathname === item.href
-                  : pathname.startsWith(item.href);
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
+          {siteConfig.nav.map((item) => {
+            const active =
+              item.href === "/"
+                ? pathname === item.href
+                : pathname.startsWith(item.href);
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    active
-                      ? "bg-background text-foreground shadow-sm"
-                      : "text-muted-foreground hover:text-foreground",
-                  )}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                  active
+                    ? "bg-muted text-foreground"
+                    : "text-muted-foreground hover:bg-muted/60 hover:text-foreground",
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
 
-          <div className="hidden items-center gap-3 md:flex">
-            <ThemeToggle />
-          </div>
-
-          <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle />
-            <Button
-              type="button"
-              variant="outline"
-              size="icon"
-              aria-expanded={open}
-              aria-label="Toggle navigation menu"
-              onClick={() => setOpen((value) => !value)}
-            >
-              <Menu className="size-4" />
-            </Button>
-          </div>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            aria-expanded={open}
+            aria-controls="site-nav-mobile"
+            aria-label="Toggle navigation menu"
+            className="md:hidden"
+            onClick={() => setOpen((value) => !value)}
+          >
+            <Menu className="size-5" />
+          </Button>
         </div>
-
-                        {open ? (
-          <div className="mt-3 space-y-2 border-t border-border/60 pt-3 sm:mt-4 sm:space-y-3 sm:pt-4 md:hidden">
-            <nav className="flex flex-col gap-1 sm:gap-2">
-              {siteConfig.nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-2xl px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground sm:px-4 sm:py-3"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        ) : null}
       </div>
+
+      {open ? (
+        <nav
+          id="site-nav-mobile"
+          aria-label="Mobile"
+          className="border-t border-border/60 bg-background/95 px-4 pb-4 pt-2 md:hidden"
+        >
+          {siteConfig.nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="block rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      ) : null}
     </header>
   );
 }

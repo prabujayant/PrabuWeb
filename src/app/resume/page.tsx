@@ -24,13 +24,13 @@ export const metadata = {
 const resumeSignals = [
   {
     label: "Experience",
-    value: "2 internships",
-    detail: "Baker Hughes and Juniper Networks",
+    value: "3 roles",
+    detail: "Baker Hughes (intern → engineer) and Juniper Networks",
   },
   {
     label: "Publications",
     value: "5 papers",
-    detail: "IEEE Access, ICCCNT, ICWIHI, and applied AI venues",
+    detail: "IEEE Access, ICOSEC, ICWIHMI, ICCCNT, and ICICPS",
   },
   {
     label: "Focus",
@@ -41,17 +41,17 @@ const resumeSignals = [
 
 export default function ResumePage() {
   return (
-    <div className="px-4 pb-16 pt-8 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8">
+    <div className="px-4 pb-12 pt-6 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6">
         <section>
           <Card className="bg-card/90">
-            <CardHeader className="gap-4 p-8 sm:p-10">
+            <CardHeader className="gap-4 p-6 sm:p-8">
               <Badge variant="accent" className="w-fit">
                 Resume
               </Badge>
-              <div className="flex items-start justify-between gap-8">
+              <div className="flex items-start justify-between gap-6">
                 <div>
-                  <h1 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+                  <h1 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
                     Resume
                   </h1>
                   <p className="mt-3 max-w-2xl text-base leading-7 sm:text-lg sm:leading-8 text-muted-foreground">
