@@ -108,12 +108,6 @@ export const fitAreas = [
   "Security & published research",
 ];
 
-export const featuredThemes = [
-  "Software should be a joy to use.",
-  "Complexity belongs in the backend, not the UI.",
-  "If it isn't reliable, it isn't finished.",
-];
-
 export const experience = [
   {
     company: "Baker Hughes",

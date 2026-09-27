@@ -99,35 +99,51 @@ a {
   background-clip: content-box;
 }
 
-/* --- Ambient background motion (used by AnimatedBackground) --- */
+/* --- Ambient background motion (used by AnimatedBackground) ---
+   These animate `transform` only (never `scale`), so the browser can cache
+   the rasterized `blur()` of each orb once and only move the resulting
+   texture. Animating `scale` or `rotate` forces the blur to be re-rasterized
+   on every frame, which is far more expensive on the compositor. */
 @keyframes orb-drift-a {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(6vw, -4vh, 0) scale(1.12); }
-  100% { transform: translate3d(0, 0, 0) scale(1); }
+  0% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(6vw, -4vh, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 @keyframes orb-drift-b {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(-6vw, 5vh, 0) scale(1.08); }
-  100% { transform: translate3d(0, 0, 0) scale(1); }
+  0% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-6vw, 5vh, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 @keyframes orb-drift-c {
-  0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
-  50% { transform: translate3d(4vw, 6vh, 0) scale(1.16) rotate(28deg); }
-  100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  0% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(4vw, 6vh, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 @keyframes aurora-shift {
-  0% { opacity: 0.55; transform: translate3d(-6%, -4%, 0) scale(1); }
-  50% { opacity: 1; transform: translate3d(6%, 5%, 0) scale(1.06); }
-  100% { opacity: 0.55; transform: translate3d(-6%, -4%, 0) scale(1); }
+  0% { opacity: 0.55; transform: translate3d(-6%, -4%, 0); }
+  50% { opacity: 1; transform: translate3d(6%, 5%, 0); }
+  100% { opacity: 0.55; transform: translate3d(-6%, -4%, 0); }
 }
 
 .animate-orb-a { animation: orb-drift-a 26s ease-in-out infinite; }
 .animate-orb-b { animation: orb-drift-b 34s ease-in-out infinite; }
 .animate-orb-c { animation: orb-drift-c 44s ease-in-out infinite; }
 .animate-aurora { animation: aurora-shift 18s ease-in-out infinite; }
+
+/* The orbs are wide (46-55vw) and each carries a large `blur()`, so the
+   continuous animation is costly on small screens where the GPU budget is
+   tightest. Keep the gradients, drop the motion below the `sm` breakpoint. */
+@media (max-width: 639px) {
+  .animate-orb-a,
+  .animate-orb-b,
+  .animate-orb-c,
+  .animate-aurora {
+    animation: none;
+  }
+}
 
 /* --- Layered background helpers --- */
 /* Faint blueprint grid, fading toward the top */
@@ -155,18 +171,28 @@ a {
   );
 }
 
-/* Subtle scroll-reveal (applied to sections by RevealSections) */
-.reveal {
-  opacity: 0;
-  transform: translateY(16px);
+/* Subtle scroll-reveal for page sections.
+   Driven by CSS scroll-driven animations so React never has to mutate the
+   class of a server-rendered node (which desyncs the DOM from the tree and
+   breaks hydration). The `data-reveal` attribute is set by RevealSections
+   after mount, so content is fully visible before hydration completes. */
+@keyframes section-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-.reveal-in {
-  opacity: 1;
-  transform: none;
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+@supports (animation-timeline: view()) {
+  main[data-reveal="on"] section {
+    animation: section-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -177,10 +203,7 @@ a {
     animation: none;
   }
 
-  .reveal,
-  .reveal-in {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
+  main[data-reveal="on"] section {
+    animation: none;
   }
 }

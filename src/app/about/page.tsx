@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -15,8 +16,10 @@ import {
 } from "@/content/profile";
 import AboutNarrative from "../../../content/about.mdx";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "About",
+  description:
+    "More about Prabu Jayant — the problems he likes solving, his experience at Baker Hughes and Juniper Networks, education, leadership, and technical stack.",
 };
 
 export default function AboutPage() {

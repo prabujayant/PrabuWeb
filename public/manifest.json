@@ -1,15 +1,16 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-    "icons": [
+  "name": "Prabu Jayant — Software Engineer | AI Systems",
+  "short_name": "Prabu Jayant",
+  "description": "Portfolio of Prabu Jayant, software engineer and ML researcher building AI-assisted products at Baker Hughes.",
+  "icons": [
     {
       "src": "pj-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#07080b",
+  "background_color": "#07080b"
 }

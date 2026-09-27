@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Download, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,10 +16,11 @@ import {
   publications,
   siteConfig,
 } from "@/content/profile";
-import ResumeNarrative from "../../../content/resume.mdx";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Resume",
+  description:
+    "Resume of Prabu Jayant — software engineer and ML researcher at Baker Hughes, with experience at Juniper Networks, education at RV College of Engineering, and five peer-reviewed publications.",
 };
 
 const resumeSignals = [
@@ -60,7 +62,7 @@ export default function ResumePage() {
                 </div>
                 <div className="flex flex-wrap gap-2 sm:gap-3">
                   <Button asChild size="sm" className="sm:size-lg">
-                    <a href="/resume.pdf" target="_blank" rel="noreferrer">
+                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                       Download PDF
                       <Download className="size-4" />
                     </a>
@@ -74,7 +76,7 @@ export default function ResumePage() {
                     <a
                       href={siteConfig.socialLinks[0].href}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                     >
                       LinkedIn
                       <ExternalLink className="size-4" />
@@ -175,6 +177,7 @@ export default function ResumePage() {
               <iframe
                 src="/resume.pdf"
                 title={`${siteConfig.name} resume preview`}
+                loading="lazy"
                 className="w-full border-0 min-h-[500px] sm:min-h-[600px] lg:min-h-[760px]"
               />
             </CardContent>

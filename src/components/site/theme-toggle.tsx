@@ -14,7 +14,8 @@ export function ThemeToggle() {
     setMounted(true);
   }, []);
 
-  const isDark = mounted && resolvedTheme === "dark";
+  // Assume the default (dark) theme before hydration to avoid a flash.
+  const isDark = mounted ? resolvedTheme === "dark" : true;
 
   return (
     <Button

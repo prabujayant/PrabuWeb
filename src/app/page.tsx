@@ -49,7 +49,7 @@ export default function HomePage() {
                   <Link href="/projects">See selected work</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <a href="/resume.pdf" target="_blank" rel="noreferrer">
+                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                     Download resume
                     <Download className="size-4" />
                   </a>
@@ -88,7 +88,7 @@ export default function HomePage() {
                   <a
                     href="https://www.linkedin.com/in/prabu-jayant-6b316b251/"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     LinkedIn
                     <ArrowUpRight className="size-3.5" />
@@ -137,7 +137,7 @@ export default function HomePage() {
                   <a
                     href={featuredProject.href}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     Open
                     <ArrowUpRight className="size-3.5" />

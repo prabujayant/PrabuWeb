@@ -31,10 +31,11 @@ export function HeroField() {
     let dots: Dot[] = [];
     let raf = 0;
     let running = false;
+    let rgb = "242,239,234"; // dark foreground, matches default theme
 
-    const palette = () => {
+    const updatePalette = () => {
       const dark = document.documentElement.classList.contains("dark");
-      return dark ? "242,239,234" : "24,26,32";
+      rgb = dark ? "242,239,234" : "24,26,32";
     };
 
     const resize = () => {
@@ -62,7 +63,6 @@ export function HeroField() {
     const step = () => {
       if (!width || !height) return;
       ctx.clearRect(0, 0, width, height);
-      const rgb = palette();
 
       for (const d of dots) {
         d.x += d.vx;
@@ -122,20 +122,52 @@ export function HeroField() {
       start();
     }
 
+    // Tracks whether the hero canvas is currently on-screen.
+    let inView = true;
+
     const onVisibility = () => {
       if (document.hidden) stop();
-      else if (!reduce) start();
+      else if (!reduce && inView) start();
     };
     const onResize = () => {
       resize();
       if (reduce) step();
     };
 
+    // Recolor when the light/dark theme class changes on <html>.
+    const observer = new MutationObserver(updatePalette);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    updatePalette();
+
+    // Pause the animation while the hero is off-screen. It is a fixed
+    // decorative layer, so nothing about the effect changes for the viewer.
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          inView = entry.isIntersecting;
+        }
+        if (document.hidden || reduce) {
+          stop();
+        } else if (inView) {
+          start();
+        } else {
+          stop();
+        }
+      },
+      { threshold: 0 },
+    );
+    io.observe(canvas);
+
     document.addEventListener("visibilitychange", onVisibility);
     window.addEventListener("resize", onResize);
 
     return () => {
       stop();
+      observer.disconnect();
+      io.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("resize", onResize);
     };
@@ -145,6 +177,7 @@ export function HeroField() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
+      tabIndex={-1}
       className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.45]"
     />
   );

@@ -12,32 +12,33 @@ import "./globals.css";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
   variable: "--font-fraunces",
 });
 
 const manrope = Manrope({
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
   variable: "--font-manrope",
 });
 
 export const metadata: Metadata = {
-
   metadataBase: new URL("https://prabujayant.vercel.app"),
   title: {
     default: "Prabu Jayant – Software Engineer | AI Systems | Portfolio",
     template: `%s | Prabu Jayant`,
   },
   description: siteConfig.description,
-    icons: {
-    icon: [
-      { url: "/pj-icon.svg", type: "image/svg+xml", sizes: "any" },
-    ],
+  manifest: "/manifest.json",
+  icons: {
+    icon: [{ url: "/pj-icon.svg", type: "image/svg+xml", sizes: "any" }],
   },
   openGraph: {
     title: `${siteConfig.name} | ${siteConfig.role}`,
     description: siteConfig.description,
     type: "website",
-
     url: "https://prabujayant.vercel.app",
     images: [
       {
@@ -61,22 +62,20 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     "@context": "https://schema.org",
     "@type": "Person",
     name: siteConfig.name,
-
-
     url: "https://prabujayant.vercel.app",
     image: "https://prabujayant.vercel.app/og.png",
     description:
       "Software engineer building AI systems, distributed systems, and scalable products",
-    sameAs: [
-      "https://github.com/prabujayant",
-      "https://www.linkedin.com/in/prabu-jayant-6b316b251/",
-    ],
+    sameAs: siteConfig.socialLinks.map((link) => link.href),
     jobTitle: siteConfig.role,
     worksFor: {
       "@type": "Organization",
       name: "Baker Hughes",
     },
-    alumniOf: "RV College of Engineering",
+    alumniOf: {
+      "@type": "EducationalOrganization",
+      name: "RV College of Engineering",
+    },
   };
 
   return (

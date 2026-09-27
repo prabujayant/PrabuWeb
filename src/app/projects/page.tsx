@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,8 +12,10 @@ import {
 import { projects, publications } from "@/content/profile";
 import ProjectsNarrative from "../../../content/projects.mdx";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Projects",
+  description:
+    "Projects and publications by Prabu Jayant across distributed systems, applied machine learning, and security.",
 };
 
 export default function ProjectsPage() {
@@ -60,7 +63,7 @@ export default function ProjectsPage() {
                   </div>
                   {project.href ? (
                     <Button asChild variant="outline" size="sm">
-                      <a href={project.href} target="_blank" rel="noreferrer">
+                      <a href={project.href} target="_blank" rel="noopener noreferrer">
                         View project
                         <ArrowUpRight className="size-3.5" />
                       </a>
@@ -129,7 +132,7 @@ export default function ProjectsPage() {
                     {item.summary}
                   </p>
                   <Button asChild variant="outline" size="sm" className="mt-5">
-                    <a href={item.href} target="_blank" rel="noreferrer">
+                    <a href={item.href} target="_blank" rel="noopener noreferrer">
                       View publication
                       <ArrowUpRight className="size-3.5" />
                     </a>

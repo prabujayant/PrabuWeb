@@ -9,7 +9,7 @@ export function AnimatedBackground() {
 
       {/* Cool violet wash bleeding from the top, like a distant aurora */}
       <div
-        className="animate-aurora absolute inset-x-0 top-[-22%] h-[75vh]"
+        className="animate-aurora absolute inset-x-0 top-[-22%] h-[75vh] will-change-[transform,opacity]"
         style={{
           background:
             "radial-gradient(90% 100% at 50% 0%, rgba(var(--glow-a), 0.16), transparent 70%)",
@@ -18,7 +18,7 @@ export function AnimatedBackground() {
 
       {/* Warm glow, bottom-left */}
       <div
-        className="animate-orb-a absolute bottom-[-20%] left-[-14%] h-[55vw] w-[55vw] min-h-[420px] min-w-[420px] rounded-full"
+        className="animate-orb-a absolute bottom-[-20%] left-[-14%] h-[55vw] w-[55vw] min-h-[420px] min-w-[420px] rounded-full will-change-transform"
         style={{
           background:
             "radial-gradient(circle at center, rgba(var(--glow-b), 0.11), transparent 65%)",
@@ -28,7 +28,7 @@ export function AnimatedBackground() {
 
       {/* Ice-blue glow, right */}
       <div
-        className="animate-orb-b absolute right-[-12%] top-[6%] h-[46vw] w-[46vw] min-h-[380px] min-w-[380px] rounded-full"
+        className="animate-orb-b absolute right-[-12%] top-[6%] h-[46vw] w-[46vw] min-h-[380px] min-w-[380px] rounded-full will-change-transform"
         style={{
           background:
             "radial-gradient(circle at center, rgba(var(--glow-c), 0.09), transparent 65%)",
@@ -38,7 +38,7 @@ export function AnimatedBackground() {
 
       {/* Violet drift, lower-center */}
       <div
-        className="animate-orb-c absolute bottom-[-10%] left-[30%] h-[50vw] w-[50vw] min-h-[400px] min-w-[400px] rounded-full"
+        className="animate-orb-c absolute bottom-[-10%] left-[30%] h-[50vw] w-[50vw] min-h-[400px] min-w-[400px] rounded-full will-change-transform"
         style={{
           background:
             "radial-gradient(circle at center, rgba(var(--glow-a), 0.08), transparent 68%)",
