@@ -1,0 +1,348 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Prabu Jayant — home" [ref=e5]:
+          - /url: "#home"
+        - button "Toggle navigation menu" [ref=e9]
+    - main [ref=e11]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e16]:
+            - heading "About Me" [level=1] [ref=e17]
+            - paragraph [ref=e18]: Software Development Engineer · Baker Hughes
+            - paragraph [ref=e19]: "I build AI-assisted tools at Baker Hughes: document-classification models that keep people in the loop, and platforms that quietly absorb the repetitive parts of real work. Earlier, at Juniper Networks, I worked on high-throughput network analytics. Underneath all of it, I care about software that is reliable, observable, and pleasant to work with."
+            - paragraph [ref=e20]: "Recently, I’ve been building AskMyDocs, a grounded RAG platform with hybrid search and claim-level citations, and CoLab, a real-time collaborative editor built around CRDTs. Both reflect what I enjoy most: turning complex ideas into reliable, useful software."
+            - generic [ref=e21]: I mostly build software. Some of it ends up published.
+            - generic [ref=e22]:
+              - link "Check out my experience" [ref=e23]:
+                - /url: "#experience"
+              - link "Check out my projects" [ref=e27]:
+                - /url: "#projects"
+            - generic [ref=e31]:
+              - generic [ref=e32]: Bengaluru, India
+              - generic [ref=e33]: •
+              - link "prabu.jayant2022@gmail.com" [ref=e34]:
+                - /url: mailto:prabu.jayant2022@gmail.com
+              - generic [ref=e35]: •
+              - link "+91 8904261616" [ref=e36]:
+                - /url: tel:+918904261616
+          - generic [ref=e37]:
+            - heading "Prabu Jayant" [level=2] [ref=e38]
+            - paragraph [ref=e39]: Software Development Engineer
+            - paragraph [ref=e40]: Baker Hughes · Bengaluru, India
+            - link "View Resume" [ref=e41]:
+              - /url: /resume.pdf
+            - generic [ref=e46]:
+              - link "LinkedIn" [ref=e47]:
+                - /url: https://www.linkedin.com/in/prabu-jayant-6b316b251/
+              - link "GitHub" [ref=e52]:
+                - /url: https://github.com/prabujayant
+              - link "Email" [ref=e56]:
+                - /url: mailto:prabu.jayant2022@gmail.com
+        - generic [ref=e60]:
+          - heading "Core Tools I Work With" [level=2] [ref=e61]
+          - paragraph [ref=e62]: The key technologies I rely on to build fast, reliable, and impactful applications.
+          - generic [ref=e63]:
+            - generic [ref=e69]:
+              - heading "Core programming" [level=3] [ref=e70]
+              - paragraph [ref=e71]: Languages I reach for most, from systems code to scripting
+              - generic [ref=e72]:
+                - generic [ref=e73]: C/C++
+                - generic [ref=e74]: Python
+                - generic [ref=e75]: Java
+                - generic [ref=e76]: TypeScript
+                - generic [ref=e77]: JavaScript
+                - generic [ref=e78]: SQL (query optimization, data modeling)
+            - generic [ref=e84]:
+              - heading "Frontend & web" [level=3] [ref=e85]
+              - paragraph [ref=e86]: Interfaces and the frameworks behind them
+              - generic [ref=e87]:
+                - generic [ref=e88]: React
+                - generic [ref=e89]: Next.js
+                - generic [ref=e90]: HTML5
+                - generic [ref=e91]: Tailwind CSS
+            - generic [ref=e104]:
+              - heading "Backend & distributed systems" [level=3] [ref=e105]
+              - paragraph [ref=e106]: Services, queues, and concurrent system design
+              - generic [ref=e107]:
+                - generic [ref=e108]: REST APIs
+                - generic [ref=e109]: Microservices
+                - generic [ref=e110]: Node.js
+                - generic [ref=e111]: Flask
+                - generic [ref=e112]: Redis queues
+                - generic [ref=e113]: WebSockets
+                - generic [ref=e114]: Concurrent systems design
+            - generic [ref=e121]:
+              - heading "Databases" [level=3] [ref=e122]
+              - paragraph [ref=e123]: Relational, document, and vector storage
+              - generic [ref=e124]:
+                - generic [ref=e125]: PostgreSQL
+                - generic [ref=e126]: MongoDB
+                - generic [ref=e127]: Redis
+                - generic [ref=e128]: pgvector
+                - generic [ref=e129]: Firebase
+                - generic [ref=e130]: SQL modeling
+            - generic [ref=e145]:
+              - heading "AI / ML & frameworks" [level=3] [ref=e146]
+              - paragraph [ref=e147]: Model training, evaluation, and observability
+              - generic [ref=e148]:
+                - generic [ref=e149]: PyTorch
+                - generic [ref=e150]: TensorFlow
+                - generic [ref=e151]: Scikit-learn
+                - generic [ref=e152]: Transformers (BERT)
+                - generic [ref=e153]: CNN / LSTM
+                - generic [ref=e154]: Data pipelines
+                - generic [ref=e155]: Telemetry & observability
+            - generic [ref=e160]:
+              - heading "Cloud & DevOps" [level=3] [ref=e161]
+              - paragraph [ref=e162]: Deployment, orchestration, and delivery pipelines
+              - generic [ref=e163]:
+                - generic [ref=e164]: Docker
+                - generic [ref=e165]: Kubernetes
+                - generic [ref=e166]: Microsoft Azure
+                - generic [ref=e167]: AWS
+                - generic [ref=e168]: GitHub Actions (CI/CD)
+                - generic [ref=e169]: Linux / Bash
+                - generic [ref=e170]: Git
+            - generic [ref=e183]:
+              - heading "Core CS" [level=3] [ref=e184]
+              - paragraph [ref=e185]: The fundamentals behind the systems I build
+              - generic [ref=e186]:
+                - generic [ref=e187]: Operating Systems
+                - generic [ref=e188]: Computer Networks
+                - generic [ref=e189]: Data Structures & Algorithms
+                - generic [ref=e190]: System Design
+                - generic [ref=e191]: Multi-threading
+        - generic [ref=e192]:
+          - heading "Experience Highlights" [level=2] [ref=e193]
+          - paragraph [ref=e194]: A glimpse of my professional journey, and the problems I was trusted to solve.
+          - generic [ref=e195]:
+            - article [ref=e196]:
+              - generic [ref=e197]:
+                - generic [ref=e198]:
+                  - generic [ref=e199]:
+                    - heading "Development Engineer" [level=3] [ref=e200]
+                    - paragraph [ref=e201]: Baker Hughes
+                  - generic [ref=e202]: Jan 2026 - Present
+                - list [ref=e203]:
+                  - listitem [ref=e204]: • Promoted from Digital Technology Intern to Development Engineer (Jul 2026) after shipping the hybrid BERT-CNN classification platform to production.
+                  - listitem [ref=e205]: • Designed and trained a hybrid BERT-CNN NLP model for automated document classification at 85% accuracy, adding human-in-the-loop validation that cut manual audit effort by 50+ hours a week.
+                  - listitem [ref=e206]: • Engineered a full-stack classification platform (Python, Flask, React, PostgreSQL) with automated message queues, scaling partner intake throughput 3x across regional enterprise teams.
+                  - listitem [ref=e207]: • Architected production microservices on Microsoft Azure App Service with Microsoft Entra ID RBAC and GitHub Actions CI/CD, cutting deployment cycle times by 40% under a zero-trust model.
+            - article [ref=e208]:
+              - generic [ref=e209]:
+                - generic [ref=e210]:
+                  - generic [ref=e211]:
+                    - heading "Software Engineering Intern, Data & Analytics" [level=3] [ref=e212]
+                    - paragraph [ref=e213]: Juniper Networks
+                  - generic [ref=e214]: Jul 2024 - Feb 2025
+                - list [ref=e215]:
+                  - listitem [ref=e216]: • Engineered a high-throughput Python processing pipeline handling 1M+ daily network packets, enabling real-time monitoring and automated labeled datasets for security analytics research.
+                  - listitem [ref=e217]: • Built and statistically tuned a microservice classification platform reaching 98% accuracy on network service identification, lowering system latency by 25%.
+                  - listitem [ref=e218]: • Established automated unit testing and validation frameworks in an Agile R&D workflow, reducing dataset error rates by 30% while holding production SLA compliance.
+          - generic [ref=e219]:
+            - generic [ref=e220]:
+              - heading "Education" [level=3] [ref=e222]
+              - generic [ref=e224]:
+                - generic [ref=e225]:
+                  - generic [ref=e226]: 2022 - 2026
+                  - generic [ref=e227]: CGPA 8.87
+                - heading "RV College of Engineering, Bengaluru" [level=3] [ref=e228]
+                - paragraph [ref=e229]: B.E. Computer Science and Engineering (Cybersecurity)
+                - paragraph [ref=e230]: Data Structures & Algorithms, Operating Systems, Computer Networks, System Design, Database Systems, Machine Learning, Applied Statistics
+            - generic [ref=e231]:
+              - heading "Leadership" [level=3] [ref=e233]
+              - generic [ref=e235]:
+                - generic [ref=e236]: Aug 2023 - Present
+                - heading "Event Management Lead, Google Developer Student Clubs (RVCE)" [level=3] [ref=e237]
+                - paragraph [ref=e238]: Led Tech Tank for 500+ students, owning event operations, technical infrastructure, and cross-team coordination for the GDSC-RVCE community.
+        - generic [ref=e239]:
+          - heading "Projects" [level=2] [ref=e240]
+          - paragraph [ref=e241]: Each project links to its source, and to a live demo where one is deployed. Click through to explore the code.
+          - generic [ref=e242]:
+            - generic [ref=e243]:
+              - generic [ref=e244]:
+                - generic [ref=e245]:
+                  - heading "CoLab - Real-time Collaborative Editor" [level=3] [ref=e246]
+                  - link "CoLab - Real-time Collaborative Editor on GitHub" [ref=e247]:
+                    - /url: https://github.com/prabujayant/CoLab
+                - generic [ref=e251]: Shipped
+              - paragraph [ref=e252]: High-performance real-time collaborative text editor with conflict-free synchronization, live presence cursors, and deep versioning built around CRDT principles.
+              - generic [ref=e253]:
+                - generic [ref=e254]: Problem:Enable instant, conflict-free collaboration with secure session handling, auto-saving persistence, and version history snapshots.
+                - generic [ref=e255]: System work:Designed the Y.js and WebSocket architecture, engineered compressed snapshot persistence in PostgreSQL, and implemented JWT-based auth with session rotation.
+                - generic [ref=e256]: Outcome:Shipped a secure, low-latency collaboration stack with a real-time observability dashboard for system metrics and active user sessions.
+              - generic [ref=e257]:
+                - generic [ref=e258]: TypeScript
+                - generic [ref=e259]: React
+                - generic [ref=e260]: Node.js
+                - generic [ref=e261]: Redis
+                - generic [ref=e262]: PostgreSQL
+                - generic [ref=e263]: CRDTs
+                - generic [ref=e264]: WebSockets
+                - generic [ref=e265]: Docker
+            - generic [ref=e266]:
+              - generic [ref=e267]:
+                - generic [ref=e268]:
+                  - heading "DefenSys - Intelligent Cyber Defense Platform" [level=3] [ref=e269]
+                  - link "DefenSys - Intelligent Cyber Defense Platform on GitHub" [ref=e270]:
+                    - /url: https://github.com/prabujayant/DefenSys
+                - generic [ref=e274]: Research-backed prototype
+              - paragraph [ref=e275]: Full-stack cyber defense platform with real-time threat visualization and containerized IoT simulation for attack-response workflows.
+              - generic [ref=e276]:
+                - generic [ref=e277]: Problem:Give teams a safe environment to observe threats and validate automated defenses without touching production systems.
+                - generic [ref=e278]: System work:Built the React dashboard and Flask services, containerized the simulation environment, and implemented Redis-backed queues for asynchronous defense tasks.
+                - generic [ref=e279]: Outcome:Shipped a working prototype for real-time threat demos and published the research behind the approach.
+              - generic [ref=e280]:
+                - generic [ref=e281]: C/C++
+                - generic [ref=e282]: Python
+                - generic [ref=e283]: PyTorch
+                - generic [ref=e284]: Docker
+                - generic [ref=e285]: Kubernetes
+                - generic [ref=e286]: Redis
+                - generic [ref=e287]: Linux/Bash
+            - generic [ref=e288]:
+              - generic [ref=e289]:
+                - generic [ref=e290]:
+                  - heading "AskMyDocs - Grounded RAG Q&A" [level=3] [ref=e291]
+                  - link "AskMyDocs - Grounded RAG Q&A on GitHub" [ref=e292]:
+                    - /url: https://github.com/prabujayant/RAG
+                  - link "AskMyDocs - Grounded RAG Q&A live demo" [ref=e296]:
+                    - /url: https://prabu17-askmydocs.hf.space/
+                - generic [ref=e301]: Live
+              - paragraph [ref=e302]: Retrieval-augmented Q&A over mixed-format technical documentation, with hybrid search, cross-encoder reranking, and per-claim citation grounding so unsupported claims are visible rather than hidden.
+              - generic [ref=e303]:
+                - generic [ref=e304]: Problem:Answer questions from trusted documentation without letting the model invent plausible-sounding claims that no retrieved evidence supports.
+                - generic [ref=e305]: System work:Built the hybrid retrieval path (BGE-M3 dense vectors in Qdrant fused with Postgres tsvector keyword search via reciprocal-rank fusion), reranking with a multilingual cross-encoder, and a claim-level LLM judge that labels each answer grounded, partially grounded, ungrounded, or refused.
+                - generic [ref=e306]: Outcome:Shipped a FastAPI service with streaming query progress, background Celery ingestion, a RAGAs evaluation harness against a 60-question golden set with regression thresholds, and deterministic safety screening for prompt injection and PII.
+              - generic [ref=e307]:
+                - generic [ref=e308]: Python
+                - generic [ref=e309]: FastAPI
+                - generic [ref=e310]: PostgreSQL
+                - generic [ref=e311]: Qdrant
+                - generic [ref=e312]: Redis
+                - generic [ref=e313]: Celery
+                - generic [ref=e314]: Docker
+                - generic [ref=e315]: BAAI/bge-m3
+                - generic [ref=e316]: sentence-transformers
+                - generic [ref=e317]: RAGAs
+                - generic [ref=e318]: Next.js
+            - generic [ref=e319]:
+              - generic [ref=e320]:
+                - generic [ref=e321]:
+                  - heading "PrabuWeb - Portfolio Site" [level=3] [ref=e322]
+                  - link "PrabuWeb - Portfolio Site on GitHub" [ref=e323]:
+                    - /url: https://github.com/prabujayant/PrabuWeb
+                - generic [ref=e327]: Live
+              - paragraph [ref=e328]: This site. A single scrolling portfolio built with Next.js 16 and React 19, MDX-backed long-form content, and a typed content layer that keeps copy and layout cleanly separated.
+              - generic [ref=e329]:
+                - generic [ref=e330]: Problem:Ship a fast, accessible portfolio that is easy to update without touching layout code, and that renders as static output.
+                - generic [ref=e331]: System work:Designed the single-page scroll architecture with anchor-based navigation and a scroll-spy header, authored the design token system and component primitives, and added SEO via the Metadata API with JSON-LD, sitemap, and OpenGraph cards.
+                - generic [ref=e332]: Outcome:Deployed as a fully static build with all content sourced from typed data plus MDX, so copy changes never require component edits.
+              - generic [ref=e333]:
+                - generic [ref=e334]: TypeScript
+                - generic [ref=e335]: Next.js
+                - generic [ref=e336]: React
+                - generic [ref=e337]: Tailwind CSS
+                - generic [ref=e338]: MDX
+                - generic [ref=e339]: Vercel
+            - generic [ref=e341]:
+              - heading "Why these projects" [level=2] [ref=e342]
+              - paragraph [ref=e343]: These are the projects I've learned the most from. Most of them sit at the intersection of distributed systems, security, and machine learning, and several made it into production or into a published paper.
+        - generic [ref=e344]:
+          - heading "Publications" [level=2] [ref=e345]
+          - generic [ref=e346]:
+            - generic [ref=e347]:
+              - generic [ref=e348]:
+                - generic [ref=e349]:
+                  - generic [ref=e350]: IEEE Access
+                  - generic [ref=e351]: "2025"
+                - 'heading "CASB Security Analytics for Encrypted SaaS Traffic: A Hybrid Transformer-Based Classification Framework in Enterprise Cloud Ecosystems" [level=3] [ref=e352]'
+                - paragraph [ref=e353]: A. Ravi, B. Jnyanadeep, M. V. Gagana, P. Jayant, A. Pranav, and P. Siddappa
+              - generic [ref=e354]:
+                - paragraph [ref=e355]: A hybrid transformer-based framework for classifying encrypted SaaS traffic in enterprise cloud ecosystems, combining contextual language modeling with convolutional features.
+                - link "View publication" [ref=e356]:
+                  - /url: https://scholar.google.com/citations?user=s4ldIOYAAAAJ&hl=en&oi=sra
+            - generic [ref=e360]:
+              - generic [ref=e361]:
+                - generic [ref=e362]:
+                  - generic [ref=e363]: ICOSEC
+                  - generic [ref=e364]: "2025"
+                - 'heading "DefenSys: An Integrated Platform for Malware Detection and Containerized Attack Simulation Using Deep Learning" [level=3] [ref=e365]'
+                - paragraph [ref=e366]: E. Vincent, P. Jayant, and A. Chakkan
+              - generic [ref=e367]:
+                - paragraph [ref=e368]: Pairs deep-learning malware detection with containerized attack simulation so security teams can exercise threat responses in a safe environment.
+                - link "View publication" [ref=e369]:
+                  - /url: https://ieeexplore.ieee.org/document/11459625/
+            - generic [ref=e373]:
+              - generic [ref=e374]:
+                - generic [ref=e375]:
+                  - generic [ref=e376]: ICWIHMI
+                  - generic [ref=e377]: "2025"
+                - heading "Adaptive ML Framework for SaaS Traffic Classification in Cloud Ecosystem" [level=3] [ref=e378]
+                - paragraph [ref=e379]: A. Ravi, B. Jnyanadeep, M. V. Gagana, P. Jayant, and M. Moharir
+              - generic [ref=e380]:
+                - paragraph [ref=e381]: An adaptive machine-learning framework for SaaS traffic classification in cloud ecosystems, focused on practical deployment and observability.
+                - link "View publication" [ref=e382]:
+                  - /url: https://drive.google.com/file/d/1B3tt_W8u3wbktvR13hm7hObToNdV87Ww/view
+            - generic [ref=e386]:
+              - generic [ref=e387]:
+                - generic [ref=e388]:
+                  - generic [ref=e389]: ICICPS
+                  - generic [ref=e390]: "2024"
+                  - generic [ref=e391]: Cited by 26
+                - heading "Smart Health Monitoring and Anomaly Detection Using IoT and AI" [level=3] [ref=e392]
+                - paragraph [ref=e393]: P. Jayant, E. Vincent, M. Moharir, and A. K. A. R.
+              - generic [ref=e394]:
+                - paragraph [ref=e395]: Uses IoT sensors with AI-based anomaly detection for continuous health monitoring in connected systems.
+                - link "View publication" [ref=e396]:
+                  - /url: https://ieeexplore.ieee.org/document/10724486
+            - generic [ref=e400]:
+              - generic [ref=e401]:
+                - generic [ref=e402]:
+                  - generic [ref=e403]: IEEE ICCCNT
+                  - generic [ref=e404]: "2024"
+                  - generic [ref=e405]: Cited by 7
+                - heading "Intrusion Detection in Network Traffic Using LSTM and Deep Learning" [level=3] [ref=e406]
+                - paragraph [ref=e407]: P. Jayant, M. P. Shetty, S. Jeevan, M. Moharir, and A. R. A. Kumar
+              - generic [ref=e408]:
+                - paragraph [ref=e409]: Applies LSTM sequence models to network traffic for deep-learning based intrusion detection.
+                - link "View publication" [ref=e410]:
+                  - /url: https://ieeexplore.ieee.org/document/10696283
+        - generic [ref=e414]:
+          - heading "At a glance" [level=2] [ref=e415]
+          - generic [ref=e416]:
+            - generic [ref=e417]:
+              - generic [ref=e418]:
+                - paragraph [ref=e419]: Current role
+                - heading "Baker Hughes" [level=3] [ref=e420]
+              - generic [ref=e421]: Software Development Engineer building AI-assisted document classification
+            - generic [ref=e422]:
+              - generic [ref=e423]:
+                - paragraph [ref=e424]: Publications
+                - heading "5 papers" [level=3] [ref=e425]
+              - generic [ref=e426]: IEEE Access + IEEE conferences · 34 citations · h-index 2
+            - generic [ref=e427]:
+              - generic [ref=e428]:
+                - paragraph [ref=e429]: Recognition
+                - heading "Top 1%" [level=3] [ref=e430]
+              - generic [ref=e431]: CODE RED'25, 4th of 1,000+ teams · ELCIA Next-Gen Top 10
+            - generic [ref=e432]:
+              - generic [ref=e433]:
+                - paragraph [ref=e434]: Education
+                - heading "CGPA 8.87" [level=3] [ref=e435]
+              - generic [ref=e436]: B.E. Computer Science (Cybersecurity) · RV College of Engineering
+    - contentinfo [ref=e437]:
+      - generic [ref=e438]:
+        - paragraph [ref=e439]:
+          - text: By Prabu Jayant
+          - generic [aria-hidden] [ref=e440]: ❤
+        - generic [ref=e441]:
+          - link "LinkedIn" [ref=e442]:
+            - /url: https://www.linkedin.com/in/prabu-jayant-6b316b251/
+          - link "GitHub" [ref=e447]:
+            - /url: https://github.com/prabujayant
+          - link "Email" [ref=e451]:
+            - /url: mailto:prabu.jayant2022@gmail.com
+  - button "Open Next.js Dev Tools" [ref=e460] [cursor=pointer]

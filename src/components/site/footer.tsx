@@ -13,9 +13,6 @@ export function SiteFooter() {
       <div className="page-shell flex flex-col items-center gap-6">
         <p className="text-sm text-muted-foreground">
           By {siteConfig.name}
-          <span className="animate-heartbeat mx-1 inline-block text-accent" aria-hidden="true">
-            &#10084;
-          </span>
         </p>
         <div className="flex items-center gap-8">
           {siteConfig.socialLinks.map((link) => {
