@@ -1,30 +1,17 @@
 "use client";
 
-import { Menu } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Home, Menu } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-import { ThemeToggle } from "@/components/site/theme-toggle";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/content/profile";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("#home");
   const headerRef = useRef<HTMLDivElement>(null);
-  const prevPathname = useRef(pathname);
 
-  // Close the mobile menu when navigating to a different route.
-  useEffect(() => {
-    if (prevPathname.current !== pathname) {
-      prevPathname.current = pathname;
-      setOpen(false);
-    }
-  }, [pathname]);
-
-  // Dismiss the mobile menu on Escape or on an outside click.
+  // Close the mobile menu on Escape or on an outside click.
   useEffect(() => {
     if (!open) return;
 
@@ -43,82 +30,127 @@ export function SiteHeader() {
     };
   }, [open]);
 
+  // Highlight the last navigation section whose heading has passed the fixed
+  // header. Measuring section positions avoids tall sections winning or
+  // losing based on their intersection ratio.
+  useEffect(() => {
+    const sections = siteConfig.nav
+      .map((item) => ({ href: item.href, element: document.querySelector(item.href) }))
+      .filter((item): item is { href: string; element: Element } => item.element !== null);
+
+    if (sections.length === 0) return;
+
+    let frame = 0;
+    const updateActiveSection = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const activationLine = window.scrollY + 120;
+        let current = sections[0].href;
+
+        for (const section of sections) {
+          const sectionTop =
+            section.element.getBoundingClientRect().top + window.scrollY;
+          if (sectionTop <= activationLine) {
+            current = section.href;
+          } else {
+            break;
+          }
+        }
+
+        if (window.scrollY < 40) current = "#home";
+
+        const atPageEnd =
+          window.scrollY + window.innerHeight >=
+          document.documentElement.scrollHeight - 2;
+        if (atPageEnd) current = sections[sections.length - 1].href;
+
+        setActive((previous) => (previous === current ? previous : current));
+      });
+    };
+
+    updateActiveSection();
+    document.addEventListener("scroll", updateActiveSection, {
+      capture: true,
+      passive: true,
+    });
+    window.addEventListener("resize", updateActiveSection);
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener("scroll", updateActiveSection, true);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, []);
+
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl"
+      className="fixed inset-x-0 top-0 z-50 h-10 bg-background/95 backdrop-blur-md"
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link
-          href="/"
-          className="flex min-w-0 items-baseline gap-2"
+      <div className="page-shell relative flex h-full items-center justify-center">
+        <a
+          href="#home"
+          className="absolute left-3 flex items-center transition-transform duration-300 hover:scale-110 md:left-[3.75rem] lg:hidden"
           aria-label={`${siteConfig.name} — home`}
         >
-          <span className="truncate font-serif text-lg font-semibold tracking-tight text-foreground">
-            {siteConfig.name}
-          </span>
-          <span className="hidden text-xs uppercase tracking-[0.2em] text-muted-foreground sm:inline">
-            {siteConfig.role}
-          </span>
-        </Link>
+          <Home className="size-4 text-foreground" aria-hidden="true" />
+        </a>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
-          {siteConfig.nav.map((item) => {
-            const active =
-              item.href === "/"
-                ? pathname === item.href
-                : pathname.startsWith(item.href);
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={cn(
-                  "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                  active
-                    ? "bg-muted text-foreground"
-                    : "text-muted-foreground hover:bg-muted/60 hover:text-foreground",
-                )}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+        <nav
+          className="hidden h-full items-center gap-8 lg:flex xl:gap-10"
+          aria-label="Primary"
+        >
+          {siteConfig.nav.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              aria-current={active === item.href ? "true" : undefined}
+              className={cn(
+                "relative flex h-full items-center px-1 text-sm transition-colors duration-300",
+                active === item.href
+                  ? "font-semibold text-accent after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-accent"
+                  : "text-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 hover:text-accent hover:after:w-full",
+              )}
+            >
+              {item.href === "#home" ? (
+                <Home className="mr-2 size-4" aria-hidden="true" />
+              ) : null}
+              {item.label}
+            </a>
+          ))}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            aria-expanded={open}
-            aria-controls="site-nav-mobile"
-            aria-label="Toggle navigation menu"
-            className="md:hidden"
-            onClick={() => setOpen((value) => !value)}
-          >
-            <Menu className="size-5" />
-          </Button>
-        </div>
+        <button
+          type="button"
+          aria-expanded={open}
+          aria-controls="site-nav-mobile"
+          aria-label="Toggle navigation menu"
+          className="ml-auto inline-flex size-8 items-center justify-center rounded-md text-foreground transition-colors hover:text-accent lg:hidden"
+          onClick={() => setOpen((value) => !value)}
+        >
+          <Menu className="size-4" />
+        </button>
       </div>
 
       {open ? (
         <nav
           id="site-nav-mobile"
           aria-label="Mobile"
-          className="border-t border-border/60 bg-background/95 px-4 pb-4 pt-2 md:hidden"
+          className="page-shell absolute inset-x-0 top-10 flex flex-col gap-1 border-y border-border bg-background/98 py-3 backdrop-blur-md lg:hidden"
         >
           {siteConfig.nav.map((item) => (
-            <Link
+            <a
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
+              className={cn(
+                "rounded-lg px-3 py-2.5 text-sm transition-colors",
+                active === item.href
+                  ? "font-semibold text-accent"
+                  : "text-foreground hover:text-accent",
+              )}
             >
               {item.label}
-            </Link>
+            </a>
           ))}
         </nav>
       ) : null}

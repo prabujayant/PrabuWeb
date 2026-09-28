@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <defs>
-    <!-- Dark squircle, matching the site background -->
+    <!-- Dark squircle, matching the site background (#0a0a0a) -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#111319;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#07080b;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#141416;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
     </linearGradient>
-    <!-- Warm amber monogram, matching the accent -->
+    <!-- Pink monogram, matching the site accent (#ffb6c1) -->
     <linearGradient id="accentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f2bd7f;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#d98342;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#ffe3e8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffb6c1;stop-opacity:1" />
     </linearGradient>
     <!-- Soft top highlight -->
     <radialGradient id="sheen" cx="50%" cy="0%" r="80%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.07" />
+      <stop offset="0%" style="stop-color:#ffb6c1;stop-opacity:0.10" />
       <stop offset="60%" style="stop-color:#ffffff;stop-opacity:0" />
     </radialGradient>
   </defs>
@@ -21,15 +21,15 @@
   <rect width="200" height="200" rx="50" ry="50" fill="url(#bgGrad)" />
   <rect width="200" height="200" rx="50" ry="50" fill="url(#sheen)" />
 
-  <!-- Hairline border -->
+  <!-- Hairline border, matching the site border (rgba(255,182,193,0.1)) -->
   <rect x="1.5" y="1.5" width="197" height="197" rx="48.5" ry="48.5"
-        fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1.5" />
+        fill="none" stroke="rgba(255,182,193,0.22)" stroke-width="1.5" />
 
-  <!-- Amber monogram -->
+  <!-- Pink monogram -->
   <text x="100" y="112" font-family="Georgia, 'Times New Roman', serif"
         font-size="74" font-weight="600" fill="url(#accentGrad)"
         text-anchor="middle" dominant-baseline="middle" letter-spacing="-1">PJ</text>
 
   <!-- Small accent underline dot -->
-  <circle cx="100" cy="140" r="3" fill="#e6a363" opacity="0.9" />
+  <circle cx="100" cy="140" r="3" fill="#ffb6c1" opacity="0.9" />
 </svg>

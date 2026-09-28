@@ -1,37 +1,19 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
+/* Single dark theme, matching the reference design. */
 
 :root {
-  color-scheme: light;
-  --background: #f3f2ee;
-  --foreground: #1b1c22;
-  --surface: #ffffff;
-  --card: rgba(255, 255, 255, 0.72);
-  --muted: rgba(27, 28, 34, 0.055);
-  --muted-foreground: rgba(27, 28, 34, 0.62);
-  --border: rgba(23, 25, 31, 0.12);
-  --ring: rgba(182, 84, 26, 0.45);
-  --accent: #b4541b;
-  --glow-a: 164, 104, 255;
-  --glow-b: 255, 148, 60;
-  --glow-c: 74, 168, 255;
-}
-
-.dark {
   color-scheme: dark;
-  --background: #07080b;
-  --foreground: #f2f1ec;
-  --surface: #0e1016;
-  --card: rgba(255, 255, 255, 0.04);
-  --muted: rgba(255, 255, 255, 0.055);
-  --muted-foreground: rgba(240, 239, 234, 0.62);
-  --border: rgba(255, 255, 255, 0.1);
-  --ring: rgba(232, 162, 101, 0.5);
-  --accent: #e6a363;
-  --glow-a: 158, 122, 255;
-  --glow-b: 255, 170, 90;
-  --glow-c: 96, 180, 255;
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --surface: #0f0f10;
+  --card: rgba(255, 255, 255, 0.02);
+  --muted: rgba(255, 182, 193, 0.1);
+  --muted-foreground: rgba(255, 255, 255, 0.82);
+  --border: rgba(255, 182, 193, 0.1);
+  --ring: rgba(255, 182, 193, 0.45);
+  --accent: #ffb6c1;
+  --accent-line: #ffb6c1;
 }
 
 @theme inline {
@@ -44,8 +26,8 @@
   --color-border: var(--border);
   --color-ring: var(--ring);
   --color-accent: var(--accent);
-  --font-sans: var(--font-manrope);
-  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-dancing), cursive;
 }
 
 * {
@@ -54,6 +36,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -64,17 +47,51 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Reset link styling without the colour, which would otherwise outrank
+   Tailwind's `text-*` utilities (a bare element selector has higher
+   precedence than a single class). Components set their own colour. */
 a {
-  color: inherit;
   text-decoration: none;
 }
 
+/* --- Custom pink circle cursor (matches the reference site) ---
+   A 20px translucent circle over the page, growing to a 30px more opaque
+   one over anything interactive. The SVG is inlined as a data URI so it costs
+   no request. `auto` is kept as the fallback for the case where the browser
+   cannot load a custom cursor at all. */
+body,
+a,
+button,
+input,
+textarea,
+select,
+label,
+[role="button"],
+[role="link"] {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><circle cx='10' cy='10' r='8' fill='rgba(255,182,193,0.5)'/></svg>")
+      10 10,
+    auto;
+}
+
+a,
+button,
+input[type="button"],
+input[type="submit"],
+label,
+[role="button"],
+[role="link"] {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><circle cx='15' cy='15' r='10' fill='rgba(255,182,193,0.8)'/></svg>")
+      15 15,
+    pointer;
+}
+
 ::selection {
-  background: color-mix(in srgb, var(--accent) 24%, transparent);
+  background: rgba(255, 182, 193, 0.28);
+  color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--accent) 65%, transparent);
+  outline: 2px solid rgba(255, 182, 193, 0.75);
   outline-offset: 2px;
 }
 
@@ -88,87 +105,54 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--foreground) 16%, transparent);
+  background: rgba(255, 182, 193, 0.35);
   border-radius: 999px;
   border: 3px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: color-mix(in srgb, var(--foreground) 30%, transparent);
+  background: rgba(255, 182, 193, 0.55);
   background-clip: content-box;
 }
 
-/* --- Ambient background motion (used by AnimatedBackground) ---
-   These animate `transform` only (never `scale`), so the browser can cache
-   the rasterized `blur()` of each orb once and only move the resulting
-   texture. Animating `scale` or `rotate` forces the blur to be re-rasterized
-   on every frame, which is far more expensive on the compositor. */
-@keyframes orb-drift-a {
-  0% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(6vw, -4vh, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+/* --- Shared layout rhythm --- */
+.page-shell {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
 }
 
-@keyframes orb-drift-b {
-  0% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(-6vw, 5vh, 0); }
-  100% { transform: translate3d(0, 0, 0); }
-}
-
-@keyframes orb-drift-c {
-  0% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(4vw, 6vh, 0); }
-  100% { transform: translate3d(0, 0, 0); }
-}
-
-@keyframes aurora-shift {
-  0% { opacity: 0.55; transform: translate3d(-6%, -4%, 0); }
-  50% { opacity: 1; transform: translate3d(6%, 5%, 0); }
-  100% { opacity: 0.55; transform: translate3d(-6%, -4%, 0); }
-}
-
-.animate-orb-a { animation: orb-drift-a 26s ease-in-out infinite; }
-.animate-orb-b { animation: orb-drift-b 34s ease-in-out infinite; }
-.animate-orb-c { animation: orb-drift-c 44s ease-in-out infinite; }
-.animate-aurora { animation: aurora-shift 18s ease-in-out infinite; }
-
-/* The orbs are wide (46-55vw) and each carries a large `blur()`, so the
-   continuous animation is costly on small screens where the GPU budget is
-   tightest. Keep the gradients, drop the motion below the `sm` breakpoint. */
-@media (max-width: 639px) {
-  .animate-orb-a,
-  .animate-orb-b,
-  .animate-orb-c,
-  .animate-aurora {
-    animation: none;
+@media (max-width: 400px) {
+  .page-shell {
+    padding-inline: 1rem;
   }
 }
 
-/* --- Layered background helpers --- */
-/* Faint blueprint grid, fading toward the top */
-.bg-grid {
-  background-image:
-    linear-gradient(to right, color-mix(in srgb, var(--foreground) 6%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in srgb, var(--foreground) 6%, transparent) 1px, transparent 1px);
-  background-size: 76px 76px;
-  -webkit-mask-image: radial-gradient(ellipse 75% 55% at 50% -5%, #000 0%, transparent 78%);
-  mask-image: radial-gradient(ellipse 75% 55% at 50% -5%, #000 0%, transparent 78%);
+@media (min-width: 768px) {
+  .page-shell {
+    padding-inline: 3.75rem;
+  }
 }
 
-/* Film grain */
-.bg-noise {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
-  opacity: 0.035;
+/* The short accent rule the reference places under every section title. */
+.title-rule::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent-line);
 }
 
-/* Soft vignette that pulls focus to the center */
-.bg-vignette {
-  background: radial-gradient(
-    ellipse 125% 90% at 50% -15%,
-    transparent 55%,
-    color-mix(in srgb, var(--background) 60%, transparent) 100%
-  );
+.title-rule-left::after {
+  left: 0;
+  transform: none;
+  width: 40px;
+  height: 2px;
 }
 
 /* Subtle scroll-reveal for page sections.
@@ -195,15 +179,26 @@ a {
   }
 }
 
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-orb-a,
-  .animate-orb-b,
-  .animate-orb-c,
-  .animate-aurora {
-    animation: none;
+  html {
+    scroll-behavior: auto;
   }
 
   main[data-reveal="on"] section {
+    animation: none;
+  }
+
+  .animate-heartbeat {
     animation: none;
   }
 }

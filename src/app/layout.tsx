@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Dancing_Script, Roboto } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/site/footer";
@@ -7,21 +7,20 @@ import { SiteHeader } from "@/components/site/header";
 import { Providers } from "@/components/site/providers";
 import { RevealSections } from "@/components/site/reveal-sections";
 import { siteConfig } from "@/content/profile";
-import { AnimatedBackground } from "@/components/ui/animated-background";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const dancing = Dancing_Script({
   subsets: ["latin"],
   display: "swap",
-  preload: true,
-  variable: "--font-fraunces",
+  weight: ["600", "700"],
+  variable: "--font-dancing",
 });
 
-const manrope = Manrope({
+const roboto = Roboto({
   subsets: ["latin"],
   display: "swap",
-  preload: true,
-  variable: "--font-manrope",
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -83,7 +82,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       lang="en"
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${fraunces.variable} ${manrope.variable}`}
+      className={`${dancing.variable} ${roboto.variable}`}
     >
       <head>
         <script
@@ -93,8 +92,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <Providers>
-          <div className="relative flex min-h-screen flex-col overflow-x-hidden z-0">
-            <AnimatedBackground />
+          <div className="relative flex min-h-screen flex-col overflow-x-hidden">
             <SiteHeader />
             <RevealSections>{children}</RevealSections>
             <SiteFooter />

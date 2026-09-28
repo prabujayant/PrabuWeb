@@ -24,6 +24,7 @@ export type ExperienceItem = {
 export type ProjectItem = {
   context: string;
   contribution: string;
+  demoHref?: string;
   goal: string;
   href?: string;
   name: string;
@@ -44,9 +45,19 @@ export type PublicationItem = {
 };
 
 export type SkillGroup = {
+  description: string;
+  icon: SkillIcon;
   items: string[];
   title: string;
 };
+
+export type SkillIcon =
+  | "backend"
+  | "cloud"
+  | "data"
+  | "languages"
+  | "ml"
+  | "web";
 
 export const siteConfig = {
   name: "Prabu Jayant",
@@ -62,12 +73,13 @@ export const siteConfig = {
   intro:
     "I build AI-assisted tools at Baker Hughes: document-classification models that keep people in the loop, and platforms that quietly absorb the repetitive parts of real work. Earlier, at Juniper Networks, I worked on high-throughput network analytics. Underneath all of it, I care about software that is reliable, observable, and pleasant to work with.",
   summary:
-    "Away from shipping, I spend a lot of time on applied machine learning and security. I've co-authored five peer-reviewed papers on encrypted-traffic classification, intrusion detection, and cyber defense, and I'm most at home in the space where a research idea turns into something people actually use.",
+    "Recently, I’ve been building AskMyDocs, a grounded RAG platform with hybrid search and claim-level citations, and CoLab, a real-time collaborative editor built around CRDTs. Both reflect what I enjoy most: turning complex ideas into reliable, useful software.",
   nav: [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
-    { href: "/resume", label: "Resume" },
+    { href: "#home", label: "Home" },
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#experience", label: "Experience" },
+    { href: "#projects", label: "Projects" },
   ] satisfies NavItem[],
   socialLinks: [
     {
@@ -82,7 +94,8 @@ export const homeMetrics = [
   {
     label: "Current role",
     value: "Baker Hughes",
-    detail: "Development Engineer building AI-assisted document classification",
+    detail:
+      "Software Development Engineer building AI-assisted document classification",
   },
   {
     label: "Publications",
@@ -100,13 +113,6 @@ export const homeMetrics = [
     detail: "B.E. Computer Science (Cybersecurity) · RV College of Engineering",
   },
 ] satisfies Metric[];
-
-export const fitAreas = [
-  "Applied ML that actually ships",
-  "Distributed systems you can rely on",
-  "Full-stack product engineering",
-  "Security & published research",
-];
 
 export const experience = [
   {
@@ -205,6 +211,54 @@ export const projects = [
     ],
     href: "https://github.com/prabujayant/DefenSys",
   },
+  {
+    name: "AskMyDocs - Grounded RAG Q&A",
+    context: "Production RAG platform",
+    status: "Live",
+    demoHref: "https://prabu17-askmydocs.hf.space/",
+    summary:
+      "Retrieval-augmented Q&A over mixed-format technical documentation, with hybrid search, cross-encoder reranking, and per-claim citation grounding so unsupported claims are visible rather than hidden.",
+    goal: "Answer questions from trusted documentation without letting the model invent plausible-sounding claims that no retrieved evidence supports.",
+    contribution:
+      "Built the hybrid retrieval path (BGE-M3 dense vectors in Qdrant fused with Postgres tsvector keyword search via reciprocal-rank fusion), reranking with a multilingual cross-encoder, and a claim-level LLM judge that labels each answer grounded, partially grounded, ungrounded, or refused.",
+    outcome:
+      "Shipped a FastAPI service with streaming query progress, background Celery ingestion, a RAGAs evaluation harness against a 60-question golden set with regression thresholds, and deterministic safety screening for prompt injection and PII.",
+    stack: [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Qdrant",
+      "Redis",
+      "Celery",
+      "Docker",
+      "BAAI/bge-m3",
+      "sentence-transformers",
+      "RAGAs",
+      "Next.js",
+    ],
+    href: "https://github.com/prabujayant/RAG",
+  },
+  {
+    name: "PrabuWeb - Portfolio Site",
+    context: "Product engineering",
+    status: "Live",
+    summary:
+      "This site. A single scrolling portfolio built with Next.js 16 and React 19, MDX-backed long-form content, and a typed content layer that keeps copy and layout cleanly separated.",
+    goal: "Ship a fast, accessible portfolio that is easy to update without touching layout code, and that renders as static output.",
+    contribution:
+      "Designed the single-page scroll architecture with anchor-based navigation and a scroll-spy header, authored the design token system and component primitives, and added SEO via the Metadata API with JSON-LD, sitemap, and OpenGraph cards.",
+    outcome:
+      "Deployed as a fully static build with all content sourced from typed data plus MDX, so copy changes never require component edits.",
+    stack: [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "MDX",
+      "Vercel",
+    ],
+    href: "https://github.com/prabujayant/PrabuWeb",
+  },
 ] satisfies ProjectItem[];
 
 export const publications = [
@@ -263,6 +317,8 @@ export const publications = [
 export const skills = [
   {
     title: "Core programming",
+    icon: "languages",
+    description: "Languages I reach for most, from systems code to scripting",
     items: [
       "C/C++",
       "Python",
@@ -274,10 +330,14 @@ export const skills = [
   },
   {
     title: "Frontend & web",
+    icon: "web",
+    description: "Interfaces and the frameworks behind them",
     items: ["React", "Next.js", "HTML5", "Tailwind CSS"],
   },
   {
     title: "Backend & distributed systems",
+    icon: "backend",
+    description: "Services, queues, and concurrent system design",
     items: [
       "REST APIs",
       "Microservices",
@@ -290,6 +350,8 @@ export const skills = [
   },
   {
     title: "Databases",
+    icon: "data",
+    description: "Relational, document, and vector storage",
     items: [
       "PostgreSQL",
       "MongoDB",
@@ -301,6 +363,8 @@ export const skills = [
   },
   {
     title: "AI / ML & frameworks",
+    icon: "ml",
+    description: "Model training, evaluation, and observability",
     items: [
       "PyTorch",
       "TensorFlow",
@@ -313,6 +377,8 @@ export const skills = [
   },
   {
     title: "Cloud & DevOps",
+    icon: "cloud",
+    description: "Deployment, orchestration, and delivery pipelines",
     items: [
       "Docker",
       "Kubernetes",
@@ -325,6 +391,8 @@ export const skills = [
   },
   {
     title: "Core CS",
+    icon: "backend",
+    description: "The fundamentals behind the systems I build",
     items: [
       "Operating Systems",
       "Computer Networks",
