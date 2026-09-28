@@ -165,7 +165,7 @@ export default function HomePage() {
               return (
                 <div
                   key={group.title}
-                  className="flex items-start gap-5 rounded-2xl border border-border bg-accent/[0.05] p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:bg-accent/[0.08] hover:shadow-[0_10px_30px_rgba(255,182,193,0.1)]"
+                  className="flex items-start gap-5 rounded-2xl border border-border bg-accent/[0.05] p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:bg-accent/[0.08] hover:shadow-[0_10px_30px_rgba(232,160,173,0.1)]"
                 >
                   <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
                     <Icon className="size-6" aria-hidden="true" />
@@ -200,7 +200,7 @@ export default function HomePage() {
             {experience.map((item) => (
               <li key={item.company}>
               <article
-                className="relative overflow-hidden rounded-xl border border-border border-l-2 border-l-accent/70 bg-white/[0.02] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_10px_30px_rgba(255,182,193,0.1)] sm:p-8"
+                className="relative overflow-hidden rounded-xl border border-border border-l-2 border-l-accent/70 bg-white/[0.02] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_10px_30px_rgba(232,160,173,0.1)] sm:p-8"
               >
                 <div className="pl-4 sm:pl-5">
                   <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
@@ -297,7 +297,7 @@ export default function HomePage() {
             {projects.map((project) => (
               <div
                 key={project.name}
-                className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-white/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_10px_30px_rgba(255,182,193,0.1)]"
+                className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-white/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_10px_30px_rgba(232,160,173,0.1)]"
               >
                 <div className="flex flex-wrap items-start justify-between gap-4 p-6 sm:p-8">
                   <div className="flex min-w-0 flex-1 flex-wrap items-center gap-3">

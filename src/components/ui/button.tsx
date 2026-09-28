@@ -14,9 +14,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "border border-accent bg-accent text-[#0a0a0a] hover:-translate-y-0.5 hover:bg-transparent hover:text-accent hover:shadow-[0_0_15px_rgba(255,182,193,0.3)]",
+          "border border-accent bg-accent text-[#180c10] hover:-translate-y-0.5 hover:bg-transparent hover:text-accent hover:shadow-[0_0_15px_rgba(232,160,173,0.3)]",
         outline:
-          "border border-accent bg-transparent text-accent hover:-translate-y-0.5 hover:bg-accent hover:text-background hover:shadow-[0_0_15px_rgba(255,182,193,0.3)]",
+          "border border-accent bg-transparent text-accent hover:-translate-y-0.5 hover:bg-accent hover:text-background hover:shadow-[0_0_15px_rgba(232,160,173,0.3)]",
         secondary:
           "border border-border bg-accent/10 text-muted-foreground hover:-translate-y-0.5 hover:border-accent/30 hover:bg-accent/20 hover:text-accent",
         ghost: "text-muted-foreground hover:text-accent",

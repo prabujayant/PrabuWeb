@@ -8,12 +8,12 @@
   --foreground: #ffffff;
   --surface: #0f0f10;
   --card: rgba(255, 255, 255, 0.02);
-  --muted: rgba(255, 182, 193, 0.1);
+  --muted: rgba(232, 160, 173, 0.1);
   --muted-foreground: rgba(255, 255, 255, 0.82);
-  --border: rgba(255, 182, 193, 0.1);
-  --ring: rgba(255, 182, 193, 0.45);
-  --accent: #ffb6c1;
-  --accent-line: #ffb6c1;
+  --border: rgba(232, 160, 173, 0.1);
+  --ring: rgba(232, 160, 173, 0.45);
+  --accent: #e8a0ad;
+  --accent-line: #e8a0ad;
 }
 
 @theme inline {
@@ -54,7 +54,7 @@ a {
   text-decoration: none;
 }
 
-/* --- Custom pink circle cursor (matches the reference site) ---
+/* --- Custom blue circle cursor ---
    A 20px translucent circle over the page, growing to a 30px more opaque
    one over anything interactive. The SVG is inlined as a data URI so it costs
    no request. `auto` is kept as the fallback for the case where the browser
@@ -68,7 +68,7 @@ select,
 label,
 [role="button"],
 [role="link"] {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><circle cx='10' cy='10' r='8' fill='rgba(255,182,193,0.5)'/></svg>")
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><circle cx='10' cy='10' r='8' fill='rgba(232,160,173,0.5)'/></svg>")
       10 10,
     auto;
 }
@@ -80,18 +80,18 @@ input[type="submit"],
 label,
 [role="button"],
 [role="link"] {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><circle cx='15' cy='15' r='10' fill='rgba(255,182,193,0.8)'/></svg>")
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><circle cx='15' cy='15' r='10' fill='rgba(232,160,173,0.8)'/></svg>")
       15 15,
     pointer;
 }
 
 ::selection {
-  background: rgba(255, 182, 193, 0.28);
+  background: rgba(232, 160, 173, 0.28);
   color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid rgba(255, 182, 193, 0.75);
+  outline: 2px solid rgba(232, 160, 173, 0.75);
   outline-offset: 2px;
 }
 
@@ -105,14 +105,14 @@ label,
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 182, 193, 0.35);
+  background: rgba(232, 160, 173, 0.35);
   border-radius: 999px;
   border: 3px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 182, 193, 0.55);
+  background: rgba(232, 160, 173, 0.55);
   background-clip: content-box;
 }
 
