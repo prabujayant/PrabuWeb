@@ -19,6 +19,8 @@
       "src/lib/**/*.ts",
       "src/lib/**/*.tsx",
       "content/**/*.mdx",
+      "tests/**/*.ts",
+      "playwright.config.js",
       "package.json",
       "biome.json",
       "components.json",

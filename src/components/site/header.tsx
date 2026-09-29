@@ -40,11 +40,25 @@ export function SiteHeader() {
 
     if (sections.length === 0) return;
 
+    // An anchored section settles at `scroll-padding-top` + its own
+    // `scroll-margin-top` below the viewport top, so the activation line must
+    // sit *past* that resting position. A hardcoded 120px was smaller than the
+    // real 144px resting offset, which left the nav permanently one section
+    // behind. Deriving it keeps the two from drifting apart again.
+    const rootStyles = getComputedStyle(document.documentElement);
+    const rootPadding = Number.parseFloat(rootStyles.scrollPaddingTop) || 0;
+    const sectionMargin = Math.max(
+      ...sections.map((section) =>
+        Number.parseFloat(getComputedStyle(section.element).scrollMarginTop) || 0,
+      ),
+    );
+    const activationOffset = rootPadding + sectionMargin + 16;
+
     let frame = 0;
     const updateActiveSection = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const activationLine = window.scrollY + 120;
+        const activationLine = window.scrollY + activationOffset;
         let current = sections[0].href;
 
         for (const section of sections) {

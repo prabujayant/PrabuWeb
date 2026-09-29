@@ -6,20 +6,23 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+// Next.js requires the default export of `error.tsx` to be named `Error`, which
+// necessarily shadows the global. The prop is destructured to `caughtError`.
+// biome-ignore lint/suspicious/noShadowRestrictedNames: mandated by Next.js
 export default function Error({
-  error,
+  error: caughtError,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error(error);
-  }, [error]);
+    console.error(caughtError);
+  }, [caughtError]);
 
   return (
-    <div className="px-4 pb-12 pt-6 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6">
+    <div className="page-shell pb-12 pt-20">
+      <div className="flex flex-col gap-6">
         <section>
           <Card className="bg-card/90">
             <CardHeader className="gap-4 p-6 sm:p-8">
