@@ -11,7 +11,7 @@ Personal site for Prabu Jayant: software engineer and ML researcher building AI-
 - `next-themes` for light/dark theming · `lucide-react` for icons
 - Biome replaces ESLint **and** Prettier (see Validation below)
 - SEO via the Metadata API: `sitemap.ts`, `robots.ts`, OpenGraph/Twitter cards, JSON-LD `Person` schema
-- Deployed on Vercel: https://prabujayant.vercel.app
+- Deployed on Vercel: https://www.prabujayant.com
 
 ## Tooling
 

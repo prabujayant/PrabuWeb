@@ -24,12 +24,13 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://prabujayant.vercel.app"),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: "Prabu Jayant – Software Engineer | AI Systems | Portfolio",
     template: `%s | Prabu Jayant`,
   },
   description: siteConfig.description,
+  alternates: { canonical: "/" },
   manifest: "/manifest.json",
   icons: {
     icon: [{ url: "/pj-icon.svg", type: "image/svg+xml", sizes: "any" }],
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} | ${siteConfig.role}`,
     description: siteConfig.description,
     type: "website",
-    url: "https://prabujayant.vercel.app",
+    url: siteConfig.url,
     images: [
       {
         url: "/og.png",
@@ -61,8 +62,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     "@context": "https://schema.org",
     "@type": "Person",
     name: siteConfig.name,
-    url: "https://prabujayant.vercel.app",
-    image: "https://prabujayant.vercel.app/og.png",
+    url: siteConfig.url,
+    image: `${siteConfig.url}/og.png`,
     description:
       "Software engineer building AI systems, distributed systems, and scalable products",
     sameAs: siteConfig.socialLinks.map((link) => link.href),
@@ -93,6 +94,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <Providers>
           <div className="relative flex min-h-screen flex-col overflow-x-hidden">
+            <a
+              href="#home"
+              className="fixed left-4 top-3 z-[60] -translate-y-24 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-[#180c10] focus:translate-y-0"
+            >
+              Skip to content
+            </a>
             <SiteHeader />
             <RevealSections>{children}</RevealSections>
             <SiteFooter />

@@ -5,12 +5,13 @@
 :root {
   color-scheme: dark;
   --background: #0a0a0a;
-  --foreground: #ffffff;
-  --surface: #0f0f10;
-  --card: rgba(255, 255, 255, 0.02);
-  --muted: rgba(232, 160, 173, 0.1);
-  --muted-foreground: rgba(255, 255, 255, 0.82);
-  --border: rgba(232, 160, 173, 0.1);
+  --foreground: #f4f4f5;
+  --surface: #131315;
+  --card: #131315;
+  --card-raised: #1a1a1d;
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #a1a1aa;
+  --border: rgba(255, 255, 255, 0.08);
   --ring: rgba(232, 160, 173, 0.45);
   --accent: #e8a0ad;
   --accent-line: #e8a0ad;
@@ -21,6 +22,7 @@
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-card: var(--card);
+  --color-card-raised: var(--card-raised);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
@@ -36,12 +38,18 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 5.5rem;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
+  background-image: radial-gradient(
+    60rem 32rem at 50% -8rem,
+    rgba(232, 160, 173, 0.07),
+    transparent 70%
+  );
+  background-repeat: no-repeat;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -75,6 +83,7 @@ label,
 
 a,
 button,
+summary,
 input[type="button"],
 input[type="submit"],
 label,
@@ -119,7 +128,7 @@ label,
 /* --- Shared layout rhythm --- */
 .page-shell {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1280px;
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
@@ -137,7 +146,8 @@ label,
 }
 
 /* The short accent rule the reference places under every section title. */
-.title-rule::after {
+.title-rule::after,
+.title-rule-left::after {
   content: "";
   position: absolute;
   bottom: -10px;
@@ -153,6 +163,23 @@ label,
   transform: none;
   width: 40px;
   height: 2px;
+}
+
+/* Stretch a lone trailing grid item across the row instead of leaving a gap. */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .fill-last > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1280px) {
+  .fill-last > :last-child:nth-child(3n + 1) {
+    grid-column: 1 / -1;
+  }
+
+  .fill-last > :last-child:nth-child(3n + 2) {
+    grid-column: span 2;
+  }
 }
 
 /* Subtle scroll-reveal for page sections.
@@ -190,6 +217,12 @@ label,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+
   html {
     scroll-behavior: auto;
   }

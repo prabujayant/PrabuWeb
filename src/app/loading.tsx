@@ -1,11 +1,21 @@
+import { cn } from "@/lib/utils";
+
+const block =
+  "animate-pulse border border-border bg-card motion-reduce:animate-none";
+
 export default function Loading() {
   return (
-    <div className="px-4 pb-12 pt-6 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6">
-        <div className="h-64 w-full animate-pulse rounded-[1.5rem] border border-border/70 bg-card/70" />
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="h-48 w-full animate-pulse rounded-[1.5rem] border border-border/70 bg-card/60" />
-          <div className="h-48 w-full animate-pulse rounded-[1.5rem] border border-border/70 bg-card/60" />
+    <div className="pb-8 pt-24 sm:pt-28" role="status">
+      <span className="sr-only">Loading…</span>
+      <div className="page-shell flex flex-col gap-5">
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+          <div className={cn("h-[26rem] rounded-2xl", block)} />
+          <div className={cn("h-[26rem] rounded-2xl", block)} />
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {["role", "papers", "recognition", "education"].map((key) => (
+            <div key={key} className={cn("h-32 rounded-xl", block)} />
+          ))}
         </div>
       </div>
     </div>

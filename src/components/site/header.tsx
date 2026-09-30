@@ -1,8 +1,10 @@
 "use client";
 
-import { Home, Menu } from "lucide-react";
+import { ExternalLink, Menu } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
+import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/content/profile";
 import { cn } from "@/lib/utils";
 
@@ -98,50 +100,61 @@ export function SiteHeader() {
   return (
     <header
       ref={headerRef}
-      className="fixed inset-x-0 top-0 z-50 h-10 bg-background/95 backdrop-blur-md"
+      className="fixed inset-x-0 top-0 z-50 h-14 border-b border-border bg-background/85 backdrop-blur-md"
     >
-      <div className="page-shell relative flex h-full items-center justify-center">
+      <div className="page-shell flex h-full items-center justify-between gap-6">
         <a
           href="#home"
-          className="absolute left-3 flex items-center transition-transform duration-300 hover:scale-110 md:left-[3.75rem] lg:hidden"
+          className="flex items-center gap-2.5 rounded-lg"
           aria-label={`${siteConfig.name} — home`}
         >
-          <Home className="size-4 text-foreground" aria-hidden="true" />
+          <Image
+            src="/pj-icon.svg"
+            alt=""
+            width={32}
+            height={32}
+            className="size-8"
+            unoptimized
+          />
+          <span className="text-sm font-semibold text-foreground">
+            {siteConfig.name}
+          </span>
         </a>
 
-        <nav
-          className="hidden h-full items-center gap-8 lg:flex xl:gap-10"
-          aria-label="Primary"
-        >
-          {siteConfig.nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              aria-current={active === item.href ? "true" : undefined}
-              className={cn(
-                "relative flex h-full items-center px-1 text-sm transition-colors duration-300",
-                active === item.href
-                  ? "font-semibold text-accent after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-accent"
-                  : "text-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 hover:text-accent hover:after:w-full",
-              )}
-            >
-              {item.href === "#home" ? (
-                <Home className="mr-2 size-4" aria-hidden="true" />
-              ) : null}
-              {item.label}
+        <div className="hidden h-full items-center gap-8 lg:flex">
+          <nav className="flex h-full items-center gap-7" aria-label="Primary">
+            {siteConfig.nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                aria-current={active === item.href ? "true" : undefined}
+                className={cn(
+                  "relative flex h-full items-center text-sm transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-accent after:transition-transform after:duration-200",
+                  active === item.href
+                    ? "font-medium text-accent after:scale-x-100"
+                    : "text-zinc-300 after:scale-x-0 hover:text-foreground",
+                )}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <Button asChild size="sm" variant="outline">
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              Resume
             </a>
-          ))}
-        </nav>
+          </Button>
+        </div>
 
         <button
           type="button"
           aria-expanded={open}
           aria-controls="site-nav-mobile"
           aria-label="Toggle navigation menu"
-          className="ml-auto inline-flex size-8 items-center justify-center rounded-md text-foreground transition-colors hover:text-accent lg:hidden"
+          className="inline-flex size-11 items-center justify-center rounded-lg border border-border text-foreground transition-colors hover:border-accent/40 hover:text-accent lg:hidden"
           onClick={() => setOpen((value) => !value)}
         >
-          <Menu className="size-4" />
+          <Menu className="size-5" aria-hidden="true" />
         </button>
       </div>
 
@@ -149,7 +162,7 @@ export function SiteHeader() {
         <nav
           id="site-nav-mobile"
           aria-label="Mobile"
-          className="page-shell absolute inset-x-0 top-10 flex flex-col gap-1 border-y border-border bg-background/98 py-3 backdrop-blur-md lg:hidden"
+          className="page-shell absolute inset-x-0 top-14 flex flex-col gap-1 border-b border-border bg-background py-3 lg:hidden"
         >
           {siteConfig.nav.map((item) => (
             <a
@@ -157,15 +170,27 @@ export function SiteHeader() {
               href={item.href}
               onClick={() => setOpen(false)}
               className={cn(
-                "rounded-lg px-3 py-2.5 text-sm transition-colors",
+                "flex min-h-11 items-center rounded-lg px-3 text-sm transition-colors",
                 active === item.href
-                  ? "font-semibold text-accent"
-                  : "text-foreground hover:text-accent",
+                  ? "bg-accent/10 font-medium text-accent"
+                  : "text-foreground hover:bg-white/5 hover:text-accent",
               )}
             >
               {item.label}
             </a>
           ))}
+          <div className="mt-2 border-t border-border pt-2">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm text-foreground transition-colors hover:bg-white/5 hover:text-accent"
+            >
+              Resume
+              <ExternalLink className="size-4" aria-hidden="true" />
+            </a>
+          </div>
         </nav>
       ) : null}
     </header>

@@ -54,6 +54,7 @@ export type SkillGroup = {
 export type SkillIcon =
   | "backend"
   | "cloud"
+  | "core"
   | "data"
   | "languages"
   | "ml"
@@ -61,7 +62,8 @@ export type SkillIcon =
 
 export const siteConfig = {
   name: "Prabu Jayant",
-  role: "Software engineer",
+  url: "https://www.prabujayant.com",
+  role: "Software Development Engineer",
   location: "Bengaluru, India",
   email: "prabu.jayant2022@gmail.com",
   emailHref: "mailto:prabu.jayant2022@gmail.com",
@@ -69,17 +71,14 @@ export const siteConfig = {
   phoneHref: "tel:+918904261616",
   description:
     "Prabu Jayant is a software engineer and published ML researcher at Baker Hughes, building AI-assisted products, distributed systems, and software that actually ships.",
-  tagline: "I mostly build software. Some of it ends up published.",
   intro:
-    "I build AI-assisted tools at Baker Hughes: document-classification models that keep people in the loop, and platforms that quietly absorb the repetitive parts of real work. Earlier, at Juniper Networks, I worked on high-throughput network analytics. Underneath all of it, I care about software that is reliable, observable, and pleasant to work with.",
-  summary:
-    "Recently, I’ve been building AskMyDocs, a grounded RAG platform with hybrid search and claim-level citations, and CoLab, a real-time collaborative editor built around CRDTs. Both reflect what I enjoy most: turning complex ideas into reliable, useful software.",
+    "I’m a software engineer at Baker Hughes, where I build AI tools that take repetitive work off people’s plates while keeping them in control of the results. I’ve also worked on network analytics at Juniper Networks and published research on machine learning for security. I like taking an idea from a paper to something that runs reliably in production.",
   nav: [
     { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#experience", label: "Experience" },
     { href: "#projects", label: "Projects" },
+    { href: "#publications", label: "Publications" },
   ] satisfies NavItem[],
   socialLinks: [
     {
@@ -117,10 +116,10 @@ export const homeMetrics = [
 export const experience = [
   {
     company: "Baker Hughes",
-    role: "Development Engineer",
+    role: "Software Development Engineer",
     period: "Jan 2026 - Present",
     accomplishments: [
-      "Promoted from Digital Technology Intern to Development Engineer (Jul 2026) after shipping the hybrid BERT-CNN classification platform to production.",
+      "Promoted from Digital Technology Intern to Software Development Engineer (Jul 2026) after shipping the hybrid BERT-CNN classification platform to production.",
       "Designed and trained a hybrid BERT-CNN NLP model for automated document classification at 85% accuracy, adding human-in-the-loop validation that cut manual audit effort by 50+ hours a week.",
       "Engineered a full-stack classification platform (Python, Flask, React, PostgreSQL) with automated message queues, scaling partner intake throughput 3x across regional enterprise teams.",
       "Architected production microservices on Microsoft Azure App Service with Microsoft Entra ID RBAC and GitHub Actions CI/CD, cutting deployment cycle times by 40% under a zero-trust model.",
@@ -271,7 +270,7 @@ export const publications = [
       "A. Ravi, B. Jnyanadeep, M. V. Gagana, P. Jayant, A. Pranav, and P. Siddappa",
     summary:
       "A hybrid transformer-based framework for classifying encrypted SaaS traffic in enterprise cloud ecosystems, combining contextual language modeling with convolutional features.",
-    href: "https://scholar.google.com/citations?user=s4ldIOYAAAAJ&hl=en&oi=sra",
+    href: "https://ieeexplore.ieee.org/document/11288974/",
   },
   {
     title:
@@ -290,7 +289,7 @@ export const publications = [
     authors: "A. Ravi, B. Jnyanadeep, M. V. Gagana, P. Jayant, and M. Moharir",
     summary:
       "An adaptive machine-learning framework for SaaS traffic classification in cloud ecosystems, focused on practical deployment and observability.",
-    href: "https://drive.google.com/file/d/1B3tt_W8u3wbktvR13hm7hObToNdV87Ww/view",
+    href: "https://link.springer.com/chapter/10.1007/978-981-96-8563-9_9",
   },
   {
     title: "Smart Health Monitoring and Anomaly Detection Using IoT and AI",
@@ -391,7 +390,7 @@ export const skills = [
   },
   {
     title: "Core CS",
-    icon: "backend",
+    icon: "core",
     description: "The fundamentals behind the systems I build",
     items: [
       "Operating Systems",
